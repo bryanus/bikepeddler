@@ -5,8 +5,16 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.create
-		@image = @post.images.new(params[:image])
+		@post = Post.new
+		# @image = @post.images.new(params[:image])
+
+		#what does this do again?
+		respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @post }
+    end
+
+
 	end
 
 	def show
@@ -14,21 +22,13 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		p params
-		p "$" * 300
-		# @post = Post.find_by_id(session[:post_id])
-		# p "#{ session[:post_id] }"
-		# p "$" * 300
-		if @post
-			 @image = @post.images.new(params[:image])
+		@post = Post.create(params[:post])
 
-			@image.save
-				flash[:notice] = "Created successfully!"
-	      redirect_to post_path(@post)
-    else
-      flash[:error] = "Oops something went wrong. Please try again."
-      render 'new'
-    end  
+		respond_to do |format|
+	    format.html { redirect_to post_images_path(@post) }
+	    format.xml  { render :head => :created }
+	  end
+		
 	end
 
 	def edit
@@ -38,20 +38,7 @@ class PostsController < ApplicationController
 	def update
 		p params
 		p "$" * 300
-		@post = Post.find_by_id(params[:id])
-		# p "#{ session[:post_id] }"
-		# p "$" * 300
-		if @post
-			 @image = @post.images.new(params[:image])
-			 @post.update_attributes(params[:post])
-			@post.save
-			@image.save
-				flash[:notice] = "Created successfully!"
-	      redirect_to post_path(@post)
-    else
-      flash[:error] = "Oops something went wrong. Please try again."
-      render 'new'
-    end  
+		
 	end
 
 	def destroy
@@ -65,8 +52,5 @@ class PostsController < ApplicationController
 	end
 
 
-	def image_upload
-		image = Image.create(params[:image])
-		session[:images].push(image.id)
-	end
+	
 end

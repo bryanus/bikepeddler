@@ -6,4 +6,6 @@
 	<%= image_tag image.image_file_url %>
 <% end %>
 <%= link_to 'edit', edit_post_path(@post) %>
+
+<%= link_to 'upload photos', new_post_image_path(@post) %>
 <%= link_to 'delete', @post, method: :delete, data: { confirm: "Are you sure?" } %>

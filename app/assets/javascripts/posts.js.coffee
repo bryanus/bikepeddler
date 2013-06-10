@@ -3,6 +3,5 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-	$('.edit_post').fileupload()
+	$('#fileupload').fileupload()
 		dataType: "script"
-		
