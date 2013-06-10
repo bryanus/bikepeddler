@@ -1,0 +1,9 @@
+<h3><%= @post.title %></h3>
+<h4><%= @post.price %></h4>
+<%= simple_format(@post.description) %>
+
+<% @post.images.each do |image| %>
+	<%= image_tag image.image_file_url %>
+<% end %>
+<%= link_to 'edit', edit_post_path(@post) %>
+<%= link_to 'delete', @post, method: :delete, data: { confirm: "Are you sure?" } %>
