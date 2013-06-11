@@ -1,0 +1,11 @@
+<div class="row-fluid">
+	<div class="container">
+	  <ul class="thumbnails">
+	    <% @post.images.each do |pic| %>
+	     <li class="span3"><%= image_tag pic.image_file.url(:thumb).to_s %>	
+					<%= link_to 'Remove', post_image_path(@post, pic.id), :confirm => "Delete this photo?", :method => 'delete' %>
+				</li>
+	    <% end %>
+	  </ul>
+	</div>
+</div>	

@@ -36,8 +36,10 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		p params
-		p "$" * 300
+		@post = Post.find(params[:id])
+		puts @post.id 
+		puts "*" * 300
+		@post.update_attributes(params[:post])
 		
 	end
 

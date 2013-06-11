@@ -1,8 +1,15 @@
 class ImagesController < ApplicationController
 
 	def index
-		@images = Post.find(params[:post_id]).images.all
 		@post = Post.find(params[:post_id])
+		@images = @post.images
+		@image = Image.new
+
+		respond_to do |format|
+			format.html { }
+			format.js { render layout: false }
+		end
+		
 	end
 
 	def new
@@ -30,21 +37,21 @@ class ImagesController < ApplicationController
     @image = @post.images.new(params[:image])
 
     if @image.save
-
-    else
-      render :json => { "errors" => @image.errors } 
+      redirect_to post_images_path(@post)
     end
+
   end
 
 
   def destroy
     @image = Image.find(params[:id])
-    @image.destroy
+    @post = Post.find(params[:post_id])
+    
 
-    respond_to do |format|
-      format.html { redirect_to post_images_path(post.id) }
-      format.json { head :no_content }
+    if @image.destroy
+      redirect_to post_images_path(@post)
     end
+    
   end
 
 

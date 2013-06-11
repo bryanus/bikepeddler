@@ -1,4 +1,12 @@
 @import "bootstrap";
+@import 'shadowbox';
+
+
+#sb-container {
+  z-index: 1200;
+}
+
+
 body { padding-top: 60px; }
 /* @import "bootstrap-responsive"; */
 

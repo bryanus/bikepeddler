@@ -1,18 +1,9 @@
-<h1>Your ad:	<%= @post.title %></h1>
-<br />
+<h2>Step 2: Upload photos</h2>
 
-<h2>Upload some photos for your listing!</h2>
+<%= form_for [@post, @image], html: {:id => 'imageupload'}, :remote => true do |f| %>
+	<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
+<% end %>
 
-<br />
-<%= link_to 'Back', post_path(@post) %> |
-<%= link_to 'Upload Photos', new_post_image_path(@post) %> |
-
-<br />
 <div id="post">
-  <ul id="grid">
-    <% @images.each do |pic| %>
-     <li><%= link_to image_tag(pic.image_file.url(:thumb).to_s), post_image_path(@post,pic) %>	
-				<%= link_to 'Remove', post_image_path(@post, pic.id), :confirm => "Delete this photo?", :method => 'delete' %>
-			</li>
-    <% end %>
-  </ul>
+	<%= render 'post_images' %>
+</div>

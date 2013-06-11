@@ -1,22 +1,11 @@
-<%= form_for [@post, @image], :remote => true do %>
+<%= form_for [@post, @image], html: {:id => 'imageupload'}, :remote => true do |f| %>
 
 	<h1>Upload post Photos:	<%= @post.title %></h1>
-	<br>
-	
-	<br>
-	<p id="notice"><%= notice %></p>
 
 		Upload Photos: 
-		<input id="fileupload" type="file" name="image[image_file]" multiple>
+		
+		<%= f.label :image, "Upload images:" %>
+		<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
 
-		<%= link_to 'Back', posts_path %> |
-		<%= link_to 'Photos Viewer', post_images_path(@post) %>
-		</br>
-	
 		
 <% end %>
-why doesn't this work?
-<%= form_for [@post, @image], :id => 'fileupload', :remote => true do |f| %>
-			<%= f.label :image, "Upload images:" %>
-			<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
-		<% end %>
