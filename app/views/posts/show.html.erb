@@ -10,12 +10,12 @@
 <div class="row-fluid">
 	<div class="container">
 	  <ul class="thumbnails">
-	    <% @post.images.each do |pic| %>
+	    <% @post.images.sort.each do |pic| %>
 	     	<li class="span3">
 	     		<%= link_to image_tag(pic.image_file.url(:thumb).to_s), pic.image_file_url, rel: 'shadowbox[gallery]' %>	
 					
 
-					<%= link_to 'Remove', post_image_path(@post, pic.id), :confirm => "Delete this photo?", :method => 'delete' %>
+					<%#= link_to 'Remove', post_image_path(@post, pic.id), :confirm => "Delete this photo?", :method => 'delete' %>
 				</li>
 	    <% end %>
 	  </ul>

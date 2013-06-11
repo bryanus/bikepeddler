@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 		puts @post.id 
 		puts "*" * 300
 		@post.update_attributes(params[:post])
-		
+		redirect_to post_path(@post)
 	end
 
 	def destroy

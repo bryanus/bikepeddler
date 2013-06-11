@@ -6,7 +6,7 @@
 		  	<!-- how to do this with link_to? -->
 		    <%= link_to post_path(post) do %>
 		    	<div class="thumbnail">
-			      <%= image_tag post.images[0].image_file_url(:thumb).to_s %>
+			      <%= image_tag post.images[-1].image_file_url(:thumb).to_s %>
 			      <h4><%= truncate(post.title, :length => 22) %></h4>
 			      <h5><%= post.price %></h5>
 			  <% end %>    
