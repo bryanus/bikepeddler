@@ -33,19 +33,22 @@
 				  <input type="text" class="input-medium">
 				  <button type="submit" class="btn">Search</button>
 				</form>
-		    <div class="btn-group">
-			  	
+		    
+			  <div class="login-area">	
 				  <% if current_user %>
-				  	Logged in as <%= current_user.fname %>
+				  	<div class="user-status">Welcome <%= link_to current_user.fname, edit_user_path(current_user) %>!</div>
+				  <div class="btn-group">	
 				  	<button class="btn"><%= link_to "Post Ad", new_post_path %></button>
-				  	<button class="btn"><%= link_to "Log Out", logout_path("current"), method: "delete" %></button>
+				  	<button class="btn"><%= link_to "Log Out", logout_path(current_user) %></button>
 				  <% else %>
+				  <div class="btn-group">
 					  <button class="btn"><%= link_to "Post Ad", new_post_path %></button>
 				  	<button class="btn"><%= link_to "Login", login_path %></button>
 				  	<button class="btn"><%= link_to "Register", signup_path %></button>
 				  <% end %>	
 				</div>
-		  </div>
+			</div>	
+	  </div>
 
 		  
 		</div>

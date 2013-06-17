@@ -1,14 +1,19 @@
 <div class="span8">
-	<div class="edit-buttons">
-		<%= link_to 'edit', edit_post_path(@post), :class => 'btn btn-inverse' %>
-		<%#= link_to 'upload photos', new_post_image_path(@post) %>
-		<%= link_to 'delete', @post, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
-	</div>
-
+	<% if current_user && current_user.id == @post.user_id  %>
+		<div class="edit-buttons">
+			<%= link_to 'edit', edit_post_path(@post), :class => 'btn btn-inverse' %>
+			<%#= link_to 'upload photos', new_post_image_path(@post) %>
+			<%= link_to 'delete', @post, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+		</div>
+<% end %>
 	<div>
 		<h2><%= @post.title %></h2>
 		<h4><%= @post.price %></h4>
-		<%= link_to 'Contact seller', edit_post_path(@post), :class => 'btn btn-info' %>
+		<% if current_user %>
+			<%= mail_to @user.email, 'Contact Seller', :class => 'btn btn-info' %>
+		<% else %>
+			<%= link_to 'Contact Seller', signup_path, :class => 'btn btn-info' %>
+		<% end %>		
 	</div>	
 	<div class="description">
 		<%= simple_format(@post.description) %>

@@ -112,3 +112,23 @@ footer .contact input.button {
 	margin-top: 0px;
 	font: normal 11px  "Helvetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif;
 }
+
+.user-status {
+	color: #fff;
+	font-size: 13px;
+	display: inline;
+	padding-right: 10px;
+}
+
+.user-status a{
+	color: #fff;
+	text-decoration: underline;
+}
+
+.user-status a:hover{
+	color: #999;
+}
+
+.login-area {
+	float: right;
+}

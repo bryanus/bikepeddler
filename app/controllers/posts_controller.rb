@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 	before_filter :authorize, only: [:edit, :update]
-	
+
 	def index
 		@posts = Post.order('created_at DESC')
 	end
@@ -21,6 +21,8 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@user = User.find(@post.user_id)
+	
 	end
 
 	def create

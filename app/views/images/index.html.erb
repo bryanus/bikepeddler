@@ -1,4 +1,4 @@
-<h2>Step 2: Upload or Edit photos</h2>
+<h2>Step 2: Edit photos</h2>
 
 <%= form_for [@post, @image], html: {:id => 'imageupload'}, :remote => true do |f| %>
 	<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
