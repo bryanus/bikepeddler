@@ -2,9 +2,9 @@
 	<div class="container">
 	  <ul class="thumbnails">
 	    <% @post.images.sort.each do |pic| %>
-	     <li class="span3"><%= image_tag pic.image_file.url(:thumb).to_s %>	
+	     <li><%= image_tag pic.image_file.url(:thumb).to_s %>	
 					
-					<%#= link_to 'Remove', post_image_path(@post, pic.id), :confirm => "Delete this photo?", :method => 'delete' %>
+					<%= link_to 'Remove', post_image_path(@post, pic.id), :confirm => "Delete this photo?", :method => 'delete' %>
 				</li>
 	    <% end %>
 	  </ul>

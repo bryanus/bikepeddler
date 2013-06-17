@@ -1,0 +1,8 @@
+<!-- Uses form tag instead of form for because not using a model -->
+<%= form_tag sessions_path do %>
+	<div class="">
+		<%= text_field_tag :email, params[:email], :class => 'input-medium', :placeholder => 'email address' %><br />
+	<%= password_field_tag :password, params[:password], :class => 'input-medium', :placeholder => 'password' %><br />
+	
+	<%= submit_tag :submit, :class => 'btn btn-primary' %>
+<% end %>

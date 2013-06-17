@@ -23,15 +23,27 @@
 		<div class="container">
 		  <div class="navbar-inner">
 		    <a class="brand" href="/"><%= image_tag "logo.png", :alt => "Heavy Peddler" %></a>
-		    <ul class="nav">
+		    <!-- <ul class="nav">
 		      <li class="active"><a href="#">Forums</a></li>
 		      <li><a href="#">About</a></li>
 		      <li><a href="#">Contact</a></li>
-		    </ul>
+		    </ul> -->
+
+		    <form class="form-search">
+				  <input type="text" class="input-medium">
+				  <button type="submit" class="btn">Search</button>
+				</form>
 		    <div class="btn-group">
-			  	<button class="btn"><%= link_to "Post Ad", new_post_path %></button>
-				  <button class="btn">Login</button>
-				  <button class="btn">Register</button>
+			  	
+				  <% if current_user %>
+				  	Logged in as <%= current_user.fname %>
+				  	<button class="btn"><%= link_to "Post Ad", new_post_path %></button>
+				  	<button class="btn"><%= link_to "Log Out", logout_path("current"), method: "delete" %></button>
+				  <% else %>
+					  <button class="btn"><%= link_to "Post Ad", new_post_path %></button>
+				  	<button class="btn"><%= link_to "Login", login_path %></button>
+				  	<button class="btn"><%= link_to "Register", signup_path %></button>
+				  <% end %>	
 				</div>
 		  </div>
 
@@ -49,6 +61,7 @@
     </div>
   </div>
 
+<%= render 'posts/footer' %>
 
 
 </body>

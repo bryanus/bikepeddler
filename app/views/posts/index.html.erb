@@ -2,19 +2,31 @@
 
 	<ul class="thumbnails">
 	  <% @posts.each do |post| %>
-		  <li class="span3">
+		  <li>
 		  	<!-- how to do this with link_to? -->
 		    <%= link_to post_path(post) do %>
 		    	<div class="thumbnail">
-			      <%= image_tag post.images[-1].image_file_url(:thumb).to_s %>
-			      <h4><%= truncate(post.title, :length => 22) %></h4>
-			      <h5><%= post.price %></h5>
+			      <%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
+			      <h5><%= truncate(post.title, :length => 22) %></h5>
+			      <h6><%= post.price %></h6>
 			  <% end %>    
-			      <p><%= sanitize(truncate(post.description), :length => 50) %>
+			      <!-- <p><%#= sanitize(truncate(post.description), :length => 50) %> -->
 			    </div>
 			  
 		  </li>
 		<% end %>
 	</ul>
+
+	<div class="pagination pagination-small pagination-centered">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
 
 </div>

@@ -1,0 +1,19 @@
+<%= form_for @user do |f| %>
+	<div class="error_messages">
+		<% if @user.errors.any? %>
+			<h2>Form is invalid</h2>
+			<ul>
+				<%= @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		<% end %>		
+	</div>
+
+	
+	<%= f.text_field :fname, :class => 'input-medium', :placeholder => 'first name' %><br />
+ 	<%= f.text_field :email, :class => 'input-medium', :placeholder => 'email address' %><br />
+ 	<%= f.password_field :password, :class => 'input-medium', :placeholder => 'password' %><br />
+ 	<%= f.password_field :password_confirmation, :class => 'input-medium', :placeholder => 're-enter password' %><br />
+ 	<%= f.submit 'Submit', :class => 'btn btn-primary' %>
+<% end %>

@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
 
+	before_filter :authorize, only: [:edit, :update]
+	
 	def index
-		@posts = Post.all
+		@posts = Post.order('created_at DESC')
 	end
 
 	def new
@@ -40,7 +42,7 @@ class PostsController < ApplicationController
 		puts @post.id 
 		puts "*" * 300
 		@post.update_attributes(params[:post])
-		redirect_to post_path(@post)
+		redirect_to post_images_path(@post)
 	end
 
 	def destroy
@@ -56,3 +58,5 @@ class PostsController < ApplicationController
 
 	
 end
+
+

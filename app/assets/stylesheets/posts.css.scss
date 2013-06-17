@@ -1,3 +1,114 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit-buttons {
+	padding: 0;
+}
+
+footer {
+	 clear: both;
+	 color: #666;
+	 position: relative;
+	 z-index: 10;
+	 height: auto;
+	 margin-top: -3em;
+	 padding-bottom: 30px;
+	 padding-top: 30px;
+	 background-color: #2a2a2a;
+}
+
+footer .container .span3 {
+	margin-left: 0px;
+	padding-right: 10px;
+}
+
+footer .copyright {
+	color: #555;
+	font-size: 10px;
+	padding-top: 25px;
+	float: left;
+	clear: both;
+}	
+
+footer .resources ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	width: 110px;
+	float: left;
+	margin-top: 10px;
+}
+
+footer a{
+	color: #fff;
+}
+
+footer a:hover{
+	color: #fff;
+	text-decoration: underline;
+}
+
+footer .title {
+	color: #fff;
+	font-weight: strong;
+	font-size: 16px;
+	border-bottom: 1px solid #666;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	width: 200px;
+}
+
+footer img {
+	padding: 8px;
+	border: 1px solid #666;
+	-webkit-border-radius: 0;
+}
+
+footer .social img {
+	border: none;
+}
+
+footer .social {
+	clear: both;
+}
+
+footer .contact p {
+	color: #fff;
+	padding: 5px 0 10px 0;
+}
+
+footer .contact .social {
+	padding-top: 15px;
+	float: left;
+	width: 100%;
+}
+
+footer .social img {
+	float: left;
+	margin-right: 5px;
+	padding: 0;
+}
+
+footer .contact input.input_type {
+	height: 22px;
+	width: 139px;
+	line-height: 20px;
+	padding: 0;
+	float: left;
+	color: #333;
+	font-size: 12px;
+	font: normal 12px "Helvetica Neue", Helvetica, Arial, "Microsoft Sans Serif";
+}
+
+footer .contact input.button {
+	background: url(submit_button.jpg) no-repeat;
+	width: 63px;
+	height: 25px;
+	float: right;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	margin-top: 0px;
+	font: normal 11px  "Helvetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif;
+}

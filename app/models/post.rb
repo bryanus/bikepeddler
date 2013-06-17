@@ -1,9 +1,9 @@
 class Post < ActiveRecord::Base
   attr_accessible :description, :price, :title, :images
 
-  validates :title,  :presence => true, :on => :save
-  validates :price,  :presence => true, :on => :save
-  validates :description,  :presence => true, :on => :save
+  validates :title,  :presence => true
+  validates :price,  :presence => true
+  validates :description,  :presence => true
  
   has_many :images
 

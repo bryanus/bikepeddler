@@ -1,0 +1,76 @@
+<footer>
+	
+
+	<SCRIPT LANGUAGE="Javascript">
+		function clearText(field){
+			if (field.defaultValue == field.value) field.value = '';
+			else if (field.value == '') field.value = field.defaultValue;
+
+		}
+	</SCRIPT>
+
+	<div class="container">
+		<div class="span3">
+			<div class="title">Most Viewed</div>
+				<%= image_tag Post.last.images.order('created_at DESC').first.image_file_url(:thumb).to_s %>
+	</ul>
+		</div>
+
+		<div class="span3">
+			<div class="title">In The News</div>
+		</div>
+
+		<div class="span3">
+			<div class="title">Resources</div>
+				<div class="resources">
+					<ul>
+						<li><a href="#">Forums</a></li>
+						<li><a href="#">Support</a></li>
+						<li><a href="#">Partners</a></li>
+						<li><a href="#">Advertise</a></li>
+						<li><a href="#">Media</a></li>
+					</ul>
+
+					<ul>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Terms of Use</a></li>
+					</ul>
+				</div>
+		</div>
+
+		<div class="span3">
+			<div class="title">Connect With Us</div>
+			<div class="contact">
+				<p>Join our newsletter for special offers, helpful tips, and service updates!</p>
+
+					<!-- Begin MailChimp Signup Form -->
+					<script type="text/javascript">
+						// delete this script tag and use a "div.mce_inline_error{ XXX !important}" selector
+						// or fill this in and it will be inlined when errors are generated
+						var mc_custom_error_style = '';
+					</script>
+
+					<form action="http://clickvdvdbooq.us1.list-manage2.com/subscribe/post?u=31e86497vfvf4fb67474105bb0393&amp;id=cb74vfvf71a4a9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+						<input type="text" value="Enter email address" onFocus="clearText(this)" onBlur="clearText(this)" name="EMAIL" class="input_type" id="mce-EMAIL">
+						<input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button">
+						<div id="mce-responses">
+							<div class="response" id="mce-error-response" style="display:none"></div>
+							<div class="response" id="mce-success-response" style="display:none"></div>
+						</div>
+					</form>
+			</div>
+			<div class="social">
+			
+				<a href="http://www.facebook.com/heavypeddler" target="_new"><%= image_tag "facebook.jpg", :alt => "facebook" %></a>
+				<a href="http://twitter.com/#!/heavypeddler" target="_new"><%= image_tag "twitter.jpg", :alt => "twitter" %></a>
+				<g:plusone size="small" annotation="none"></g:plusone>
+			</div>
+		</div>
+
+		<div class="copyright">© 2013 HeavyPeddler Industries, Inc. | Buy and Sell your bikes and bike parts! | All Rights Reserved. <a href="privacy.html" target="_blank">Privacy Policy</a>. <!--<a href="terms.html" target="_blank">Site Map</a>--> </div>
+
+	</div>
+</footer>
+
