@@ -27,6 +27,8 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.create(params[:post])
+		#associate the logged in user id with the post on creation
+		@post.update_attribute(:user_id, current_user.id)
 
 		respond_to do |format|
 	    format.html { redirect_to post_images_path(@post) }

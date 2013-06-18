@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="span3">
 			<div class="title">Most Viewed</div>
-				<%= image_tag Post.last.images.order('created_at DESC').first.image_file_url(:thumb).to_s %>
+				<%= image_tag Post.first.images.order('created_at DESC').first.image_file_url(:thumb).to_s %>
 	</ul>
 		</div>
 
