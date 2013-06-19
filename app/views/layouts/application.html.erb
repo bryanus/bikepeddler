@@ -36,7 +36,7 @@
 		    
 			  <div class="login-area">	
 				  <% if current_user %>
-				  	<div class="user-status">Welcome <%= link_to current_user.fname, edit_user_path(current_user) %>!</div>
+				  	<div class="user-status">Welcome <%= link_to current_user.fname, user_path(current_user) %></div>
 				  <div class="btn-group">	
 				  	<button class="btn"><%= link_to "Post Ad", new_post_path %></button>
 				  	<button class="btn"><%= link_to "Log Out", logout_path(current_user) %></button>

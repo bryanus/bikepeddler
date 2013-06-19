@@ -1,1 +1,18 @@
-edit usrs path
+<h2>Edit your profile</h2>
+
+<%= form_for(@user) do |f| %>
+ 
+  <%= f.label :first_name %>
+	<%= f.text_field :fname, :class => 'input-large' %><br />
+
+  <%= f.label :email_address %>
+<%= f.text_field :email, :class => 'input-large' %><br />
+
+  <%= f.label :password %>
+  <%= f.password_field :password, :class => 'input-large' %><br />
+
+  <%= f.label :password_confirmation, "Confirm Password" %>
+  <%= f.password_field :password_confirmation, :class => 'input-large' %><br />
+
+  <%= f.button "Cancel", class: "btn" %> <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>

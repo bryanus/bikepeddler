@@ -1,0 +1,12 @@
+<div class="user-profile">
+	<h2>Your Profile</h2><%= link_to "Edit Profile", edit_user_path(current_user), class: "btn" %>
+</div>
+
+
+<div class="user-info">
+	Name: <%= @user.fname %><br />
+	Email address: <%= @user.email %><br />
+</div>	
+
+
+<%= render "listings" %>
