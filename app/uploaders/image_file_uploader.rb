@@ -7,12 +7,15 @@ class ImageFileUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-  # include Sprockets::Helpers::RailsHelper
-  # include Sprockets::Helpers::IsolatedHelper
+  include Sprockets::Helpers::RailsHelper
+  include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # storage :file
+  storage :fog
+
+  include CarrierWave::MimeTypes
+  process :set_content_type
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -39,6 +42,10 @@ class ImageFileUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_fill => [160, 160]
   end
+
+  #by not creating a "large" version, we replace the original during upload to s3, as 1MB+ uploads are broken by fog for some reason
+  process :resize_to_fill => [1024, 768]
+  
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
