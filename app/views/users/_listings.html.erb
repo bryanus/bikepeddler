@@ -1,10 +1,15 @@
-<h2>Your Listings</h2>
-<% @user.posts.each do |post| %>
-	<ul>
-		<li>
-			<%= link_to post.title, post_path(post) %>
-			<%#= post.created_at.to_s %>
-			<%= Date.strptime(post.created_at.to_s, "%Y-%m-%d %H:%M:%S %Z").strftime("%m/%d/%Y") %>
-		</li>
-	</ul>
-<% end %>
+<h2>Listings for <%= @user.fname %></h2>
+	
+	<% unless @user.posts.empty? %> <!-- unless there are no posts for the user -->
+		<% @user.posts.each do |post| %>
+			<ul>
+				<li>
+					<%= link_to post.title, post_path(post) %>
+					<%#= post.created_at.to_s %>
+					<%= Date.strptime(post.created_at.to_s, "%Y-%m-%d %H:%M:%S %Z").strftime("%m/%d/%Y") %>
+				</li>
+			</ul>
+		<% end %>
+	<% else %>
+	There are currently no listings available.
+	<% end %>	

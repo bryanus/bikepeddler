@@ -1,5 +1,11 @@
+<ul class="breadcrumb">
+  <li><a href="#">Home</a> <span class="divider">/</span></li>
+  <li><a href="#">Library</a> <span class="divider">/</span></li>
+  <li class="active">Data</li>
+</ul>
+
 <div class="span8">
-	<% if current_user && current_user.id == @post.user_id  %>
+	<% if session[:user_id] == @post.user_id  %>
 		<div class="edit-buttons">
 			<%= link_to 'edit', edit_post_path(@post), :class => 'btn btn-inverse' %>
 			<%#= link_to 'upload photos', new_post_image_path(@post) %>
@@ -9,11 +15,22 @@
 	<div>
 		<h2><%= @post.title %></h2>
 		<h4><%= @post.price %></h4>
-		<% if current_user %>
-			<%= mail_to @user.email, 'Contact Seller', :class => 'btn btn-info' %>
-		<% else %>
-			<%= link_to 'Contact Seller', signup_path, :class => 'btn btn-info' %>
-		<% end %>		
+		<div class="btn-group">
+		  <a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+		    <%= @user.fname %>&nbsp;(42)
+		    <span class="caret"></span>
+		  </a>
+		  <ul class="dropdown-menu">
+		    <% if current_user %>
+					<li><%= mail_to @user.email, 'Contact Seller' %></li>
+					<li><%= link_to 'View Other Listings', user_path(@user) %></li>		
+				<% else %>
+					<li><%= link_to 'Contact Seller', login_path %></li>
+					<li><%= link_to 'View Other Listings', user_path(@user) %></li>
+				<% end %>		
+		  </ul>
+		</div>
+		
 	</div>	
 	<div class="description">
 		<%= simple_format(@post.description) %>

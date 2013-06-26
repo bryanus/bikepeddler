@@ -11,13 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617222255) do
+ActiveRecord::Schema.define(:version => 20130626202234) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "images", :force => true do |t|
     t.string   "image_file"
     t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "processed"
   end
 
   add_index "images", ["post_id"], :name => "index_images_on_post_id"
@@ -30,6 +37,9 @@ ActiveRecord::Schema.define(:version => 20130617222255) do
     t.datetime "updated_at",  :null => false
     t.string   "image"
     t.integer  "user_id"
+    t.integer  "category_id"
+    t.integer  "type"
+    t.integer  "status"
   end
 
   create_table "users", :force => true do |t|
@@ -38,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130617222255) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "lname"
   end
 
 end
