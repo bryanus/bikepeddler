@@ -1,4 +1,6 @@
 <%= form_for @post do |f| %>
+	
+ 	<%= f.collection_select :category_id, @categories, :id, :name %><br />
  	<%= f.text_field :title, :class => 'input-xxlarge', :placeholder => 'Title' %><br />
  	<%= f.text_field :price, :class => 'input-medium', :placeholder => 'Price' %><br />
  	<%= f.text_area :description, :rows => '10', :class => 'input-xxlarge', :placeholder => 'Description' %><br />

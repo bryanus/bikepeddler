@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 	def new
 		@post = Post.new
 		# @image = @post.images.new(params[:image])
-
+		@categories = Category.all
 		#what does this do again?
 		respond_to do |format|
       format.html # new.html.erb
