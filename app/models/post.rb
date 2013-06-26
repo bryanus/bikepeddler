@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :description, :price, :title, :images, :category_id, :type
+  attr_accessible :description, :price, :title, :images, :category_id, :adtype
 
   validates :title,  :presence => true
   validates :price,  :presence => true 

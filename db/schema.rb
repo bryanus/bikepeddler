@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626202234) do
+ActiveRecord::Schema.define(:version => 20130626202032) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20130626202234) do
     t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.boolean  "processed"
   end
 
   add_index "images", ["post_id"], :name => "index_images_on_post_id"
@@ -33,22 +32,21 @@ ActiveRecord::Schema.define(:version => 20130626202234) do
     t.string   "title"
     t.string   "price"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "image"
     t.integer  "user_id"
     t.integer  "category_id"
-    t.integer  "type"
-    t.integer  "status"
+    t.integer  "adtype"
+    t.integer  "status",      :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "fname"
+    t.string   "lname"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "lname"
   end
 
 end
