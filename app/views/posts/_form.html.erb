@@ -1,11 +1,11 @@
 <%= form_for @post do |f| %>
-	<!-- need a fake pulldown here to submit the Type to update Post -->
-
-	<%= f.select :adtype, options_for_select([['For Sale', 0], ["Wanted", 1], ["Trades", 2]]) %><br />
- 	<%= f.collection_select :category_id, @categories, :id, :name, :prompt => 'Select Category' %><br />
+  <!-- listing_types is a class model with the ad types in a nested array -->
+  <%= f.select :adtype, options_for_select(Post.listing_types, @post.adtype) %>
+	<%#= f.select :adtype, options_for_select([['For Sale', 0], ["Wanted", 1], ["Trades", 2]]), { :include_blank => "Select Ad Type", :selected => @post.adtype } %><br />
+ 	<%= f.collection_select :category_id, @categories, :id, :name, :include_blank => 'Select Category' %><br />
  	<%= f.text_field :title, :class => 'input-xxlarge', :placeholder => 'Title' %><br />
  	<%= f.text_field :price, :class => 'input-medium', :placeholder => 'Price' %><br />
  	<%= f.text_area :description, :rows => '10', :class => 'input-xxlarge', :placeholder => 'Description' %><br />
- <%= f.submit 'Continue', :class => 'btn btn-primary'%> <%= link_to "Cancel", root_url %> 
+ 	<%= f.submit 'Continue', :class => 'btn btn-primary'%> <%= link_to "Cancel", root_url %> 
 <% end %>
 

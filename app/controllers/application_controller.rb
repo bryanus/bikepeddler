@@ -17,4 +17,16 @@ private
   	redirect_to login_url, alert: "Not authorized" if current_user.nil?
   end
 
+  def correct_user?
+    @user = User.find(params[:id])
+
+    if current_user.nil? #If they are not logged in, just show listings only
+      false
+    else
+      current_user.id == @user.id #else check if they are the correct_user to show edit form or not
+    end
+  end
+
+  helper_method :correct_user?
+
 end

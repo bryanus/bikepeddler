@@ -19,6 +19,66 @@
 		<% end %>
 	</ul>
 
+<h2>For Sale only:</h2>
+<ul class="thumbnails">
+	  <% @forsale.each do |post| %>
+		  <li>
+		  	<!-- how to do this with link_to? -->
+		    <%= link_to post_path(post) do %>
+		    	<div class="thumbnail">
+			      <% if post.images.exists? %>
+			      	<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
+			      <% end %>
+			      <h5><%= truncate(post.title, :length => 22) %></h5>
+			      <h6><%= post.price %></h6>
+			  <% end %>    
+			      <!-- <p><%#= sanitize(truncate(post.description), :length => 50) %> -->
+			    </div>
+			  
+		  </li>
+		<% end %>
+	</ul>
+
+<h2>Wanted only:</h2>
+<ul class="thumbnails">
+	  <% @wanted.each do |post| %>
+		  <li>
+		  	<!-- how to do this with link_to? -->
+		    <%= link_to post_path(post) do %>
+		    	<div class="thumbnail">
+			      <% if post.images.exists? %>
+			      	<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
+			      <% end %>
+			      <h5><%= truncate(post.title, :length => 22) %></h5>
+			      <h6><%= post.price %></h6>
+			  <% end %>    
+			      <!-- <p><%#= sanitize(truncate(post.description), :length => 50) %> -->
+			    </div>
+			  
+		  </li>
+		<% end %>
+	</ul>
+
+<h2>Trade only:</h2>
+<ul class="thumbnails">
+	  <% @trade.each do |post| %>
+		  <li>
+		  	<!-- how to do this with link_to? -->
+		    <%= link_to post_path(post) do %>
+		    	<div class="thumbnail">
+			      <% if post.images.exists? %>
+			      	<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
+			      <% end %>
+			      <h5><%= truncate(post.title, :length => 22) %></h5>
+			      <h6><%= post.price %></h6>
+			  <% end %>    
+			      <!-- <p><%#= sanitize(truncate(post.description), :length => 50) %> -->
+			    </div>
+			  
+		  </li>
+		<% end %>
+	</ul>
+
 	<div class="pagination pagination-small pagination-centered">
   <ul>
     <li><a href="#">Prev</a></li>

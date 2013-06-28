@@ -11,8 +11,9 @@
 			<%#= link_to 'upload photos', new_post_image_path(@post) %>
 			<%= link_to 'delete', @post, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
 		</div>
-<% end %>
+	<% end %>
 	<div>
+		<p>Ad Type: <%= @adtype_name %>, Category: <%= @category_name %></p>
 		<h2><%= @post.title %></h2>
 		<h4><%= @post.price %></h4>
 		<div class="btn-group">
@@ -48,7 +49,6 @@
 			    <% end %>
 			  </ul>
 			</div>
-		
 	</div>
 </div>
 

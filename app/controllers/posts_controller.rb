@@ -4,6 +4,10 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.order('created_at DESC')
+
+		@forsale = Post.find_all_by_adtype 0
+		@wanted = Post.find_all_by_adtype 1
+		@trade = Post.find_all_by_adtype 2
 	end
 
 	def new
@@ -15,14 +19,25 @@ class PostsController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @post }
     end
-
-
 	end
+
+	#can I put this into the model? how?
+	def listing_type(id)
+  	if id == 0
+  		"For Sale"
+  	elsif id == 1
+  		"Wanted"
+  	else 
+  		"Trade"
+  	end
+  end
+
 
 	def show
 		@post = Post.find(params[:id])
 		@user = User.find(@post.user_id)
-	
+		@category_name = Category.find(@post.category_id).name
+		@adtype_name = listing_type(@post.adtype)
 	end
 
 	def create
@@ -34,11 +49,11 @@ class PostsController < ApplicationController
 	    format.html { redirect_to post_images_path(@post) }
 	    format.xml  { render :head => :created }
 	  end
-		
 	end
 
 	def edit
 		@post = Post.find(params[:id])
+		@categories = Category.all
 	end
 
 	def update
@@ -56,11 +71,9 @@ class PostsController < ApplicationController
     else
       flash[:error] = "Unable to delete. Please try again."
     end
-
 	end
 
 
-	
 end
 
 
