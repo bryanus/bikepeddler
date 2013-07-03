@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(:version => 20130626202032) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.string   "price"
+    t.decimal  "price",       :precision => 8, :scale => 2
     t.text     "description"
     t.integer  "user_id"
     t.integer  "category_id"
     t.integer  "adtype"
-    t.integer  "status",      :default => 0
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "status",                                    :default => 0
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
   end
 
   create_table "users", :force => true do |t|

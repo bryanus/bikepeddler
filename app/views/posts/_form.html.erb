@@ -1,6 +1,7 @@
-<%= form_for @post do |f| %>
+<%= form_for @post do |f|  %>
+  <%= render "shared/error_messages", :target => @post %>
   <!-- listing_types is a class model with the ad types in a nested array -->
-  <%= f.select :adtype, options_for_select(Post.listing_types, @post.adtype) %>
+  <%= f.select :adtype, options_for_select(Post.listing_types, @post.adtype), :include_blank => 'Select Ad Type', :required => true %>
 	<%#= f.select :adtype, options_for_select([['For Sale', 0], ["Wanted", 1], ["Trades", 2]]), { :include_blank => "Select Ad Type", :selected => @post.adtype } %><br />
  	<%= f.collection_select :category_id, @categories, :id, :name, :include_blank => 'Select Category' %><br />
  	<%= f.text_field :title, :class => 'input-xxlarge', :placeholder => 'Title' %><br />

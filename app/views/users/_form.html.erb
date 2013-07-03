@@ -1,15 +1,5 @@
 <%= form_for @user do |f| %>
-	<div class="error_messages">
-		<% if @user.errors.any? %>
-			<h2>Form is invalid</h2>
-			<ul>
-				<%= @user.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
-		<% end %>		
-	</div>
-
+	<%= render "shared/error_messages", :target => @user %>
 	
 	<%= f.text_field :fname, :class => 'input-medium', :placeholder => 'first name' %><br />
  	<%= f.text_field :lname, :class => 'input-medium', :placeholder => 'last name' %><br />

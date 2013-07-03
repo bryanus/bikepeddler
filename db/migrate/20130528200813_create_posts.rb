@@ -2,7 +2,7 @@ class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
       t.string :title
-      t.string :price
+      t.decimal :price, :precision => 8, :scale => 2
       t.text :description
       t.integer :user_id
       t.integer :category_id

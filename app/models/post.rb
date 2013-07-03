@@ -1,10 +1,13 @@
 class Post < ActiveRecord::Base
   attr_accessible :description, :price, :title, :images, :category_id, :adtype
 
-  validates :title,  :presence => true
-  validates :price,  :presence => true 
-  #need to add formatting validations for price
-  validates :description,  :presence => true
+  validates :title, :presence => true, :on => :create
+  validates :price, :presence => true, :on => :create
+  validates :description, :presence => true, :on => :create
+
+  validates :price, format: { with: /^\d+(.\d{1,2})?$/i }
+
+
  
   has_many :images
   belongs_to :user
