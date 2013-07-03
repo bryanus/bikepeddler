@@ -15,9 +15,9 @@ class Post < ActiveRecord::Base
   end
 
   def listing_type(id)
-  	if id = 0
+  	if id == 0
   		"For Sale"
-  	elsif id = 1
+  	elsif id == 1
   		"Wanted"
   	else 
   		"Trade"
