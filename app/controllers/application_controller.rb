@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -28,5 +31,32 @@ private
   end
 
   helper_method :correct_user?
+
+  #are these in the right place? should they be in post controller? Or can I put these into the model? how?
+  def listing_type(id)
+    if id == 0
+      "For Sale"
+    elsif id == 1
+      "Wanted"
+    else 
+      "Trade"
+    end
+  end
+
+  helper_method :listing_type
+
+  def currency_type(id)
+    if id == 0
+      "USD $"
+    elsif id == 1
+      "CAD $"
+    elsif id == 2
+      "GPB £"
+    else 
+      "Euro €"
+    end
+  end
+
+  helper_method :currency_type
 
 end

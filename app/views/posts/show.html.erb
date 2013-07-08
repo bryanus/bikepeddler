@@ -15,7 +15,7 @@
 	<div>
 		<p>Ad Type: <%= @adtype_name %>, Category: <%= @category_name %></p>
 		<h2><%= @post.title %></h2>
-		<h4><%= number_to_currency( @post.price, :unit => "$") %></h4>
+		<h4><%= number_to_currency( @post.price, :unit => currency_type(@post.currency)) %></h4>
 		<div class="btn-group">
 		  <a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
 		    <%= @user.fname %>&nbsp;(42)

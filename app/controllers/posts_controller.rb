@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class PostsController < ApplicationController
 
 	before_filter :authorize, only: [:edit, :update]
@@ -21,17 +24,7 @@ class PostsController < ApplicationController
     end
 	end
 
-	#can I put this into the model? how?
-	def listing_type(id)
-  	if id == 0
-  		"For Sale"
-  	elsif id == 1
-  		"Wanted"
-  	else 
-  		"Trade"
-  	end
-  end
-
+	
 
 	def show
 		@post = Post.find(params[:id])
@@ -41,25 +34,36 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.create(params[:post])
-		#associate the logged in user id with the post on creation
-		@post.update_attribute(:user_id, current_user.id)
-
+		@post = Post.new(params[:post])
+		@categories = Category.all
+		
 		respond_to do |format|
-	    format.html { redirect_to post_images_path(@post) }
-	    format.xml  { render :head => :created }
+	    if @post.save
+	    	#associate the logged in user id with the post on creation
+	    	@post.update_attribute(:user_id, current_user.id)
+	    	format.html { redirect_to post_images_path(@post) }
+	    else
+	    	format.html {render :new }
+	    	format.json { render :json => @post.errors }
+	    	# puts @post.errors.full_messages
+	    	# puts "*" * 50
+	  	end
 	  end
 	end
 
 	def edit
 		@post = Post.find(params[:id])
-		@categories = Category.all
+
+		if @post
+			@categories = Category.all
+		else
+			redirect_to new_post_path
+		end
 	end
 
 	def update
 		@post = Post.find(params[:id])
-		puts @post.id 
-		puts "*" * 300
+		
 		@post.update_attributes(params[:post])
 		redirect_to post_images_path(@post)
 	end

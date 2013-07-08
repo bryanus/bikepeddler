@@ -131,3 +131,14 @@ footer .contact input.button {
 .login-area {
 	float: right;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+#post_currency {
+	width: 100px;
+}
