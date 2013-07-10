@@ -27,7 +27,7 @@ group :development do
   gem "better_errors"
 end
 
-gem 'jquery-rails'
+gem "jquery-rails", "2.3.0"
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'jbuilder'

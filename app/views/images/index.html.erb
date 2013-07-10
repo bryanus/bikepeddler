@@ -4,6 +4,10 @@
 	<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
 <% end %>
 
+<div id="progress" class="progress progress-success progress-striped">
+        <div class="bar"></div>
+    </div>
+
 <%= link_to "View Your Listing", post_path(@post), :class => 'btn' %> 
 
 <div id="post">
