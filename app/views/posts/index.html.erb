@@ -6,11 +6,15 @@
 		  	<!-- how to do this with link_to? -->
 		    <%= link_to post_path(post) do %>
 		    	<div class="thumbnail">
-			      <% if post.images.exists? %>
+			      <% if post.has_image? %>
 			      	<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
-			      <% end %>
-			      <h5><%= truncate(post.title, :length => 22) %></h5>
-			      <h6><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></h6>
+				      <h5><%= truncate(post.title, :length => 22) %></h5>
+				      <h6><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></h6>
+			      <% else %>
+				      <%= image_tag "placeholder-thumbnail.gif", :alt => "missing image" %>
+				      <h5><%= truncate(post.title, :length => 22) %></h5>
+				      <h6><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></h6>
+				     <% end %> 
 			  <% end %>    
 			      <!-- <p><%#= sanitize(truncate(post.description), :length => 50) %> -->
 			    </div>

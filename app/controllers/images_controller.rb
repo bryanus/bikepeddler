@@ -37,6 +37,7 @@ class ImagesController < ApplicationController
     @image = @post.images.new(params[:image])
 
     if @image.save
+      @post.update_attribute(:has_image, true)
       redirect_to post_images_path(@post)
     end
 
@@ -49,10 +50,18 @@ class ImagesController < ApplicationController
     
 
     if @image.destroy
+      update_has_image(@post.id)
       redirect_to post_images_path(@post)
     end
     
   end
+
+  def update_has_image(id)
+    @post = Post.find(id)
+    if @post.images.empty?
+      @post.update_attribute(:has_image, false)
+    end
+  end  
 
 
 end

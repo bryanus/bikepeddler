@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 class Post < ActiveRecord::Base
-  attr_accessible :description, :price, :title, :images, :category_id, :adtype, :currency
+  attr_accessible :description, :price, :title, :images, :category_id, :adtype, :currency, :has_image
 
   validates :title, :presence => true, :on => :create
   validates :price, :presence => true, :on => :create

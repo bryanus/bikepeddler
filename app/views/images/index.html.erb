@@ -1,14 +1,18 @@
 <h2>Step 2: Edit photos</h2>
 
-<%= form_for [@post, @image], html: {:id => 'imageupload'}, :remote => true do |f| %>
-	<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
-<% end %>
+<a id="upload-button" class="btn btn-primary">Select Images</a>
 
-<div id="progress" class="progress progress-success progress-striped">
+<div class="hidden-upload">
+	<%= form_for [@post, @image], html: {:id => 'imageupload'}, :remote => true do |f| %>
+		<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
+	<% end %>
+</div>
+
+<div id="progress" class="progress progress-striped active">
         <div class="bar"></div>
     </div>
 
-<%= link_to "View Your Listing", post_path(@post), :class => 'btn' %> 
+	<%= link_to "View Your Listing", post_path(@post), :id => 'view-listing', :class => 'btn' %> 
 
 <div id="post">
 	<%= render 'post_images' %>
