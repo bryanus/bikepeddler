@@ -1,0 +1,19 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comments li {
+	list-style-type: none;
+	border-top: 1px solid #fff;
+	padding-top: 5px;
+}
+
+.comments ul {
+	margin-left: 0px;
+}
+
+.author {
+	font-size: 12px;
+	font-style: italic;
+	color: #999;
+}

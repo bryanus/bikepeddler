@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :email, format: {with: /[\w\-\.]+@[\w\-\.]+\.[\w]{2,7}/i }
   
   has_many :posts
+  has_many :comments
 
 
 

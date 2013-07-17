@@ -10,6 +10,8 @@ Bikepeddler::Application.routes.draw do
     resources :images, :except => [:update, :edit]
   end
 
+  resources :comments
+
   resources :users
   resources :sessions
 

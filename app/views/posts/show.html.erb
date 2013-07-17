@@ -50,6 +50,22 @@
 			  </ul>
 			</div>
 	</div>
+	<div class="comments">
+		<h3>Comments</h3>
+		<% @comments.each do |comment| %>
+			<ul>
+				<li>
+					<div class="author">
+						posted by <%= link_to comment.user.fname, user_path(comment.user_id) %> <%= time_ago_in_words(comment.created_at) %> ago</div><br />
+					<div class="comment-text">
+						<%= comment.comment %>
+					</div>
+				</li>
+			</ul>
+		<% end %>
+
+		<%= render "comments/form" %>
+	</div>
 </div>
 
 <div class="span4">
