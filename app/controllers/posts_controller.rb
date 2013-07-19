@@ -11,6 +11,8 @@ class PostsController < ApplicationController
 		@forsale = Post.find_all_by_adtype 0
 		@wanted = Post.find_all_by_adtype 1
 		@trade = Post.find_all_by_adtype 2
+
+		@category_bikes = Post.find_all_by_category_id 1
 	end
 
 	def new
@@ -73,7 +75,7 @@ class PostsController < ApplicationController
 	def destroy
 		if Post.find(params[:id]).destroy
 			flash[:notice] = "Deleted successfully!"
-      redirect_to posts_path
+      redirect_to user_path(current_user.id)
     else
       flash[:error] = "Unable to delete. Please try again."
     end

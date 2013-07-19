@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 	    	@comment.update_attribute(:post_id, @post.id)
 	    	format.html { redirect_to post_path(@post) }
 	    else
-	    	format.html {render :new }
+	    	format.html { render "/posts/show" }
 	    	format.json { render :json => @comment.errors }
 	    	# puts @comment.errors.full_messages
 	    	# puts "*" * 50
