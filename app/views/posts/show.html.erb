@@ -34,7 +34,7 @@
 		
 	</div>	
 	<div class="description">
-		<%= simple_format(@post.description) %>
+		<%= @post.description.html_safe %>
 
 		<div class="row-fluid">
 			
@@ -56,15 +56,24 @@
 			<ul>
 				<li>
 					<div class="author">
-						posted by <%= link_to comment.user.fname, user_path(comment.user_id) %> <%= time_ago_in_words(comment.created_at) %> ago</div><br />
+						posted by <%= link_to comment.user.fname, user_path(comment.user_id) %> <%= time_ago_in_words(comment.created_at) %> ago
+						<% if check_time_since_post(comment) && correct_user(comment.user) %>
+							<%= link_to "Edit", edit_comment_path(comment), :class => "btn btn-mini" %>
+						<% end %>	
+					</div>
 					<div class="comment-text">
-						<%= comment.comment %>
+						<%= comment.comment.html_safe %>
 					</div>
 				</li>
 			</ul>
 		<% end %>
-
-		<%= render "comments/form" %>
+		<% if current_user %>
+			<%= render "comments/form" %>
+		<% else %>
+			<div class="comment-login">
+				You must be <%= link_to "logged in", login_path %> to make a comment.
+			</div>
+		<% end %>	
 	</div>
 </div>
 

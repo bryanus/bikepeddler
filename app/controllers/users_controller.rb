@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	before_filter :authorize, only: [:edit, :update]
 
+
 	def new
 		@user = User.new
 	end
@@ -18,6 +19,15 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
+
+		if correct_user(@user)
+			# do stuff
+			puts "awesome dude"
+		else
+			# redirect
+			puts "EPIC FAIL"
+		end
+
 	end
 
 	def show

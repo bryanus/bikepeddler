@@ -2,17 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.comments {
+	padding-bottom: 30px;
+}
+
 .comments li {
 	list-style-type: none;
-	border-top: 1px solid #fff;
+	border-top: 1px solid #cdcdcd;
 	padding-top: 5px;
+	padding-bottom: 10px;
 }
 
 .comments ul {
 	margin-left: 0px;
 }
 
-.author {
+.author, .comment-login {
 	font-size: 12px;
 	font-style: italic;
 	color: #999;

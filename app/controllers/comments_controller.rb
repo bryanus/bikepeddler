@@ -19,4 +19,30 @@ class CommentsController < ApplicationController
 	  end
 	end
 
+	def edit
+		puts params
+		puts "*" * 50
+		@comment = Comment.find(params[:id])
+		# @post = Post.find(params[:comment][:post_id])
+		puts @comment.id
+	end
+
+	def update
+		@comment = Comment.find(params[:id])
+		
+		@comment.update_attributes(params[:comment])
+		redirect_to post_path(@comment.post_id)
+	end
+
+	def destroy
+		@comment = Comment.find(params[:id])
+
+		if @comment.destroy
+			flash[:notice] = "Deleted successfully!"
+      redirect_to post_path(@comment.post_id)
+    else
+      flash[:error] = "Unable to delete. Please try again."
+    end
+	end
+
 end

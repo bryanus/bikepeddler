@@ -20,17 +20,11 @@ private
   	redirect_to login_url, alert: "Not authorized" if current_user.nil?
   end
 
-  def correct_user?
-    @user = User.find(params[:id])
-
-    if current_user.nil? #If they are not logged in, just show listings only
-      false
-    else
-      current_user.id == @user.id #else check if they are the correct_user to show edit form or not
-    end
+  def correct_user(user)
+    current_user == user
   end
 
-  helper_method :correct_user?
+  helper_method :correct_user
 
   #are these in the right place? should they be in post controller? Or can I put these into the model? how?
   def listing_type(id)
@@ -58,5 +52,12 @@ private
   end
 
   helper_method :currency_type
+
+
+  def check_time_since_post(comment)
+    (Time.zone.now - comment.updated_at) <= 900 #15 mins
+  end
+
+  helper_method :check_time_since_post
 
 end
