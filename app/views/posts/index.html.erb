@@ -6,7 +6,7 @@
 		  <li>
 		    <%= link_to post_path(post) do %>
 			    	<div class="thumbnail">
-				      <% if post.has_image? %>
+				      <% if post.present? && post.has_image? %>
 				      	<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
 					      <h5><%= truncate(post.title, :length => 22) %></h5>
 					      <h6><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></h6>

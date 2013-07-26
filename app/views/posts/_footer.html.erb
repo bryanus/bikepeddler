@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="span3">
 			<div class="title">Just Listed</div>
-				<% if Post.first.has_image? %>
+				<% if Post.first.present? && Post.first.has_image? %>
 					<%= image_tag Post.first.images.order('created_at DESC').first.image_file_url(:thumb).to_s %>
 				<% end %>
 	</ul>
