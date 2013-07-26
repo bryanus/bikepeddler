@@ -60,4 +60,16 @@ private
 
   helper_method :check_time_since_post
 
+  def created_at_time(post)
+    Date.strptime(post.created_at.to_s, "%Y-%m-%d %H:%M:%S %Z").strftime("%m/%d/%Y")
+  end
+
+  helper_method :created_at_time
+
+  def updated_at_time(post)
+    Date.strptime(post.updated_at.to_s, "%Y-%m-%d %H:%M:%S %Z").strftime("%m/%d/%Y")
+  end
+
+  helper_method :updated_at_time
+
 end

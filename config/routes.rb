@@ -8,6 +8,9 @@ Bikepeddler::Application.routes.draw do
 
   resources :posts do
     resources :images, :except => [:update, :edit]
+    member do 
+      post 'sold'
+    end
   end
 
   resources :comments

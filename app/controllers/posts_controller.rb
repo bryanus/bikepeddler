@@ -81,6 +81,13 @@ class PostsController < ApplicationController
     end
 	end
 
+	def sold
+		@post = Post.find(params[:id])
+		
+		@post.update_attribute(:status, params[:status])
+		redirect_to user_path(current_user)
+	end
+
 
 end
 

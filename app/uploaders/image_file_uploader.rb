@@ -44,9 +44,9 @@ class ImageFileUploader < CarrierWave::Uploader::Base
   end
 
   #by not creating a "large" version, we replace the original during upload to s3, as 1MB+ uploads are broken by fog for some reason
-  process :resize_to_fill => [1024, 768]
+  #resize_to_limit only resizes if the image is larger than the provided dimensions.
+  process :resize_to_limit => [1024, 768]
   
-
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list

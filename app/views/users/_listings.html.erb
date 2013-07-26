@@ -1,18 +1,26 @@
 <h2>Listings for <%= @user.fname %></h2>
 	
 	<% unless @user.posts.empty? %> <!-- unless there are no posts for the user -->
-		<% @user.posts.each do |post| %>
+		<% @user.posts.order('id DESC').each do |post| %>
 			<ul>
 				<li>
+					<%= created_at_time(post) %>
 					<%= link_to post.title, post_path(post) %>
-					<%#= post.created_at.to_s %>
-					<%= Date.strptime(post.created_at.to_s, "%Y-%m-%d %H:%M:%S %Z").strftime("%m/%d/%Y") %>
-					<%= link_to "Edit", edit_post_path(post), :class => "btn btn-mini" %>
-					<%= link_to "Sold", post_path(post, :status => 1), :method => :put, :class => "btn btn-mini"  %>
+					<% if correct_user(@user) %>
+						<% if post.status == 0 %>
+							<%= link_to "edit", edit_post_path(post), :class => "btn btn-mini" %>
+							<%= link_to 'delete', post_path(post), method: :delete, :class => 'btn btn-mini', data: { confirm: "Are you sure?" } %>
+							<% if post.adtype == 0 %>
+								<%= link_to "sold", sold_post_path(post, status:1), :method => :post, :class => "btn btn-mini", data: { confirm: "Are you sure?" } %>
+							<% else %>
+								<%= link_to "completed", sold_post_path(post, status:1), :method => :post, :class => "btn btn-mini", data: { confirm: "Are you sure?" } %>
+							<% end %>
+
+						<% else %>
+							<div class="sold">Sold on <%= updated_at_time(post) %></div>	
+						<% end %>
+					<% end %>		
 					
-
-
-					<%= link_to 'delete', post_path(post), method: :delete, :class => 'btn btn-mini btn-danger', data: { confirm: "Are you sure?" } %>
 				</li>
 			</ul>
 		<% end %>

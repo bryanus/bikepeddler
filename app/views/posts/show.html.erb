@@ -5,15 +5,17 @@
 </ul>
 
 <div class="span8">
-	<% if session[:user_id] == @post.user_id  %>
+	<% if session[:user_id] == @post.user_id && @post.status == 0  %>
 		<div class="edit-buttons">
 			<%= link_to 'edit', edit_post_path(@post), :class => 'btn btn-inverse' %>
 			<%#= link_to 'upload photos', new_post_image_path(@post) %>
 			<%= link_to 'delete', @post, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
 		</div>
+		<% elsif @post.status == 1 %>
+			<div class="marked-sold">Sold on <%= updated_at_time(@post) %></div>	
 	<% end %>
 	<div>
-		<p>Ad Type: <%= @adtype_name %>, Category: <%= @category_name %></p>
+		
 		<h2><%= @post.title %></h2>
 		<h4><%= number_to_currency( @post.price, :unit => currency_type(@post.currency)) %></h4>
 		<div class="btn-group">
