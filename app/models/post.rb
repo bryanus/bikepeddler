@@ -27,6 +27,14 @@ class Post < ActiveRecord::Base
     currencies = [['$ USD',0], ['$ CAD',1], ['£ GPB',2], ['€ Euro',3]]
   end
 
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search.downcase}%")
+    else
+      scoped
+    end
+  end
+
 
   
 end

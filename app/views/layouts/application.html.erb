@@ -29,10 +29,10 @@
 		      <li><a href="#">Contact</a></li>
 		    </ul> -->
 
-		    <form class="form-search">
-				  <input type="text" class="input-medium">
-				  <button type="submit" class="btn">Search</button>
-				</form>
+				<%= form_tag posts_path, :class => "form-search", :method => 'get' do %>
+				  <%= text_field_tag :search, params[:search], :class => "input-medium" %>
+				  <%= submit_tag "Search", :name => nil, :class => "btn" %>
+				<% end %>
 		    
 			  <div class="login-area">	
 				  <% if current_user %>
