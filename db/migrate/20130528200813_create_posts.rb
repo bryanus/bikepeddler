@@ -11,5 +11,6 @@ class CreatePosts < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :posts, :title
   end
 end

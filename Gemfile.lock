@@ -53,6 +53,8 @@ GEM
     excon (0.23.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faker (1.2.0)
+      i18n (~> 0.5)
     fog (1.12.1)
       builder
       excon (~> 0.23.0)
@@ -159,6 +161,7 @@ DEPENDENCIES
   bootstrap-sass
   carrierwave
   coffee-rails (~> 3.2.1)
+  faker
   fog
   jbuilder
   jquery-fileupload-rails
@@ -172,4 +175,4 @@ DEPENDENCIES
   thin
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
-  will_paginate
+  will_paginate (~> 3.0)

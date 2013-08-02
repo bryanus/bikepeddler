@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 class Post < ActiveRecord::Base
-  attr_accessible :description, :price, :title, :images, :category_id, :adtype, :currency, :has_image
+  attr_accessible :description, :price, :title, :images, :category_id, :adtype, :currency, :has_image, :user_id
 
   validates :title, :presence => true, :on => :create
   validates :price, :presence => true, :on => :create
@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('title LIKE ?', "%#{search.downcase}%")
+      where('title LIKE ?', "%#{search}%")
     else
       scoped
     end

@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 	before_filter :authorize, only: [:edit, :update]
 
 	def index
-		@posts = Post.search(params[:search]).order('created_at DESC').paginate(:per_page => 2, :page => params[:page])
+		@posts = Post.search(params[:search]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
 
 		@forsale = Post.find_all_by_adtype 0
 		@wanted = Post.find_all_by_adtype 1

@@ -9,7 +9,9 @@ gem 'pg'
 
 gem 'thin'
 
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.0'
+
+gem 'faker'
 
 
 # Gems used only for assets and not required

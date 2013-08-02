@@ -11,3 +11,4 @@ categories = ["Bikes","Parts","Forks","Wheelsets","Vintage","Other"]
 categories.each do |category|
 	Category.create(name: category)
 end
+
