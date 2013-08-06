@@ -24,11 +24,7 @@ class PostsController < ApplicationController
 		@post = Post.new
 		# @image = @post.images.new(params[:image])
 		@categories = Category.all
-		#what does this do again?
-		# respond_to do |format|
-  #     format.html # new.html.erb
-  #     format.json { render json: @post }
-  #   end
+		
 	end
 
 	
