@@ -30,8 +30,8 @@ User.create!(fname: "Bryan",
     end
 
     50.times do
-      Post.create!(title: Faker::Lorem.sentence(word_count = 4),
-                   description: Faker::Lorem.paragraphs(paragraph_count = 3, supplemental = false),
+      Post.create!(title: Faker::Lorem.sentence(rand(2..10)).chomp('.'),
+                   description: Faker::Lorem.paragraphs(rand(2..8)).join("\n\n"),
                    price: rand(50..1999),
                    user_id: rand(1..6),
                    category_id: rand(1..6),

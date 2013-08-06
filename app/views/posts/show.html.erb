@@ -36,7 +36,7 @@
 		
 	</div>	
 	<div class="description">
-		<%= @post.description.html_safe %>
+		<%= simple_format(@post.description) %>
 
 		<div class="row-fluid">
 			
@@ -64,7 +64,7 @@
 						<% end %>	
 					</div>
 					<div class="comment-text">
-						<%= comment.comment.html_safe %>
+						<%= simple_format(comment.comment) %>
 					</div>
 				</li>
 			</ul>

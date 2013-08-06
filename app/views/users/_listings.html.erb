@@ -5,7 +5,7 @@
 			<ul>
 				<li>
 					<%= created_at_time(post) %>
-					<%= link_to post.title, post_path(post) %>
+					<%= link_to truncate(post.title, :length => 75), post_path(post) %>
 					<% if correct_user(@user) %>
 						<% if post.status == 0 %>
 							<%= link_to "edit", edit_post_path(post), :class => "btn btn-mini" %>
