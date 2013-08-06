@@ -1,18 +1,23 @@
 #!/bin/env ruby
-# encoding: utf-8
+
 
 class PostsController < ApplicationController
 
 	before_filter :authorize, only: [:edit, :update]
 
 	def index
-		@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 5, :page => params[:page])
+		@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
 
 		@forsale = Post.find_all_by_adtype 0
 		@wanted = Post.find_all_by_adtype 1
 		@trade = Post.find_all_by_adtype 2
 
 		@category_bikes = Post.find_all_by_category_id 1
+
+		respond_to do |format|
+			format.html { }
+			format.js { render layout: false }
+		end
 	end
 
 	def new
@@ -20,21 +25,29 @@ class PostsController < ApplicationController
 		# @image = @post.images.new(params[:image])
 		@categories = Category.all
 		#what does this do again?
-		respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @post }
-    end
+		# respond_to do |format|
+  #     format.html # new.html.erb
+  #     format.json { render json: @post }
+  #   end
 	end
 
 	
 
 	def show
+
+		@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
+
 		@post = Post.find(params[:id])
 		@user = User.find(@post.user_id)
 		@comment = Comment.new
 		@comments = @post.comments
 		@category_name = Category.find(@post.category_id).name
 		@adtype_name = listing_type(@post.adtype)
+
+		respond_to do |format|
+			format.html { }
+			format.js { redirect_to 'index' }
+		end
 	end
 
 	def create

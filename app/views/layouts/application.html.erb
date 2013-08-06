@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bikepeddler</title>
+	<title>Bikepeddler</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-  <![endif]-->
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <script type="text/javascript">
-	  Shadowbox.init({
-	  	overlayOpacity: .90,
-	  	continuous: true
-	  });
-	</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+    <![endif]-->
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <script type="text/javascript">
+    Shadowbox.init({
+    	overlayOpacity: .90,
+    	continuous: true
+    });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
 
 
-	<div class="navbar navbar-fixed-top">
-		<div class="container">
-		  <div class="navbar-inner">
-		    <a class="brand" href="/"><%= image_tag "hplogo.png", :alt => "Heavy Peddler" %></a>
+  	<div class="navbar navbar-fixed-top">
+  		<div class="container">
+  			<div class="navbar-inner">
+  				<a class="brand" href="/"><%= image_tag "hplogo.png", :alt => "Heavy Peddler" %></a>
 		    <!-- <ul class="nav">
 		      <li class="active"><a href="#">Forums</a></li>
 		      <li><a href="#">About</a></li>
 		      <li><a href="#">Contact</a></li>
 		    </ul> -->
 
-				<%= form_tag posts_path, :class => "form-search", :method => 'get' do %>
-				  <%= text_field_tag :search, params[:search], :class => "input-medium" %>
-				  <%= submit_tag "Search", :name => nil, :class => "btn" %>
-				<% end %>
+
+
+
+		    <% if params[:action] == 'index' && params[:controller] == 'posts' %>
+			    <%= form_tag posts_path, :class => "form-search", :method => 'get', remote: true, :id => "posts_search" do %>
+				    <%= text_field_tag :search, params[:search], :class => "input-medium" %>
+				    <%= submit_tag "Search", :name => nil, :class => "btn" %>
+			    <% end %>
+		    <% else %>
+			    <%= form_tag posts_path, :class => "form-search", :method => 'get', :id => "posts_search" do %>
+				    <%= text_field_tag :search, params[:search], :class => "input-medium" %>
+				    <%= submit_tag "Search", :name => nil, :class => "btn" %>
+			    <% end %>
+		    <% end %>
 		    
-			  <div class="login-area">	
-				  <% if current_user %>
-				  	<div class="user-status">Welcome <%= link_to current_user.fname, user_path(current_user) %></div>
-				  <div class="btn-group">	
-				  	<button class="btn"><%= link_to "Post Ad", new_post_path %></button>
-				  	<button class="btn"><%= link_to "Log Out", logout_path(current_user) %></button>
-				  <% else %>
-				  <div class="btn-group">
-					  <button class="btn"><%= link_to "Post Ad", login_path %></button>
-				  	<button class="btn"><%= link_to "Login", login_path %></button>
-				  	<button class="btn"><%= link_to "Register", signup_path %></button>
-				  <% end %>	
-				</div>
-			</div>	
-	  </div>
+		    <div class="login-area">	
+		    	<% if current_user %>
+		    	<div class="user-status">Welcome <%= link_to current_user.fname, user_path(current_user) %></div>
+		    	<div class="btn-group">	
+		    		<button class="btn"><%= link_to "Post Ad", new_post_path %></button>
+		    		<button class="btn"><%= link_to "Log Out", logout_path(current_user) %></button>
+		    		<% else %>
+		    		<div class="btn-group">
+		    			<button class="btn"><%= link_to "Post Ad", login_path %></button>
+		    			<button class="btn"><%= link_to "Login", login_path %></button>
+		    			<button class="btn"><%= link_to "Register", signup_path %></button>
+		    			<% end %>	
+		    		</div>
+		    	</div>	
+		    </div>
 
-		  
+
+		  </div>
 		</div>
-</div>
-   
-
-  <div class="container">
-    <%= yield %>
-  </div>
-
-	<%= render 'posts/footer' %>
 
 
-</body>
-</html>
+		<div class="container">
+			<%= yield %>
+		</div>
+
+		<%= render 'posts/footer' %>
+
+
+	</body>
+	</html>

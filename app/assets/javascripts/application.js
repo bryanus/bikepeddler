@@ -18,3 +18,26 @@
 //= require shadowbox
 //= require_tree .
 
+// why does this work? how?
+
+// $(document).ready(function(){
+// 	dataType: "script",
+// 	// Search form.
+// 	  $('#posts_search').submit(function(e) {
+// 	  	alert("submit button targeted successfully!")
+// 	  )};
+	  	
+
+// 	  //   $.get(this.action, $(this).serialize(), null, 'script');
+// 	  //   return false;
+// 	  // },
+
+		
+//    //  success: function(e, data){
+//    //  	$("#posts").html("<%= escape_javascript(render("posts")) %>");
+//    //  };
+	
+
+
+	
+// });
