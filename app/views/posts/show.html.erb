@@ -12,7 +12,7 @@
 			<%= link_to 'delete', @post, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
 		</div>
 		<% elsif @post.status == 1 %>
-			<div class="marked-sold">Sold on <%= updated_at_time(@post) %></div>	
+			<div class="marked-sold">This transaction was completed on <%= updated_at_time(@post) %></div>	
 	<% end %>
 	<div>
 		

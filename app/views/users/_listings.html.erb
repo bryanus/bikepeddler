@@ -6,20 +6,20 @@
 				<li>
 					<%= created_at_time(post) %>
 					<%= link_to truncate(post.title, :length => 75), post_path(post) %>
-					<% if correct_user(@user) %>
-						<% if post.status == 0 %>
+					
+					<% if correct_user(@user) && post.status == 0 %>
+						<!-- if not sold, show buttons-->
 							<%= link_to "edit", edit_post_path(post), :class => "btn btn-mini" %>
 							<%= link_to 'delete', post_path(post), method: :delete, :class => 'btn btn-mini', data: { confirm: "Are you sure?" } %>
-							<% if post.adtype == 0 %>
-								<%= link_to "sold", sold_post_path(post, status:1), :method => :post, :class => "btn btn-mini", data: { confirm: "Are you sure?" } %>
-							<% else %>
-								<%= link_to "completed", sold_post_path(post, status:1), :method => :post, :class => "btn btn-mini", data: { confirm: "Are you sure?" } %>
-							<% end %>
-
-						<% else %>
-							<div class="sold">Sold on <%= updated_at_time(post) %></div>	
-						<% end %>
-					<% end %>		
+								<% if post.adtype == 0 %> <!-- if for sale vs wanted, show buttons-->
+									<%= link_to "sold", sold_post_path(post, status:1), :method => :post, :class => "btn btn-mini", data: { confirm: "Are you sure?" } %>
+								<% else %>
+									<%= link_to "completed", sold_post_path(post, status:1), :method => :post, :class => "btn btn-mini", data: { confirm: "Are you sure?" } %>
+								<% end %>
+					<% elsif post.status == 1 %> <!-- post.status = 1, item is sold, show sold date instead -->
+						<div class="sold">Transaction completed on <%= updated_at_time(post) %></div>	
+					<% end %>	
+							
 					
 				</li>
 			</ul>
@@ -27,3 +27,6 @@
 	<% else %>
 	There are currently no listings available.
 	<% end %>	
+	
+
+
