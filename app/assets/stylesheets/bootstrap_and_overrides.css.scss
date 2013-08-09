@@ -34,6 +34,7 @@ body > #container { height: auto; min-height: 100%; }
 
 .navbar .brand {
 	padding: 0px 20px 0px 0px;
+  margin-left: 0px;
 }
 
 .navbar .btn {
@@ -58,24 +59,33 @@ body > #container { height: auto; min-height: 100%; }
   -webkit-box-shadow: none;
 }
 
+.thumbnails {
+  margin-left: 0px;
+}
+
+#posts .thumbnails {
+  padding-top: 40px;
+}
+
 .thumbnail {
   border: 9px solid #fff;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.355);
+  // -webkit-box-shadow: none;
   background-color: #fff;
   -webkit-border-radius: 0;
   padding: 0;
 }
 
-.thumbnails {
+
+// .thumbnails .thumbnail img{
+//   border: none;
+//   box-shadow: none;
+// }
+#post-images .thumbnails {
   padding-top: 20px;
 }
 
-.thumbnails .thumbnail img{
-  border: none;
-  box-shadow: none;
-}
-
-.thumbnails img{
+#post-images .thumbnails img{
   padding: 0;
   border: 9px solid #fff;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.355);

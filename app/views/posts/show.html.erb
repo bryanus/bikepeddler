@@ -38,7 +38,7 @@
 	<div class="description">
 		<%= simple_format(@post.description) %>
 
-		<div class="row-fluid">
+		<div class="row-fluid" id="post-images">
 			
 			  <ul class="thumbnails">
 			    <% @post.images.order('created_at ASC').each do |pic| %>
