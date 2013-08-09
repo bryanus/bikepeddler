@@ -20,7 +20,8 @@ class Post < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search, against: [:title, :description],
     using: {tsearch: {dictionary: "english"}},
-    associated_against: {user: [:fname, :lname]}
+    associated_against: {user: [:fname, :lname]},
+    ignoring: :accents
 
   def self.listing_types
   	adtypes = [['For Sale',0], ['Wanted',1], ['Trade',2]]
