@@ -53,7 +53,9 @@
 			    <% end %>
 			  </ul>
 			</div>
-			<p>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+			<% unless @post.tag_list.empty? %>
+				<p>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+			<% end %>	
 	</div>
 	<div class="comments">
 		<h3>Comments</h3>
