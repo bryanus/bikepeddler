@@ -35,10 +35,12 @@
 		</div>
 		
 	</div>	
+
+
 	<div class="description">
 		<%= simple_format(@post.description) %>
 
-		<div class="row-fluid" id="post-images">
+		<div class="row-fluid" id="post_images">
 			
 			  <ul class="thumbnails">
 			    <% @post.images.order('created_at ASC').each do |pic| %>
@@ -51,6 +53,7 @@
 			    <% end %>
 			  </ul>
 			</div>
+			<p>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 	</div>
 	<div class="comments">
 		<h3>Comments</h3>
