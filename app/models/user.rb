@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+  gravtastic
+  
   has_secure_password
 
   attr_accessible :email, :fname, :lname, :password, :password_confirmation
@@ -13,6 +16,8 @@ class User < ActiveRecord::Base
   
   has_many :posts
   has_many :comments
+
+
 
 
 
