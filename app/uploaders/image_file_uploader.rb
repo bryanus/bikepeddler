@@ -40,7 +40,7 @@ class ImageFileUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [160, 160]
+    process :resize_to_fill => [225, 225]
   end
 
   #by not creating a "large" version, we replace the original during upload to s3, as 1MB+ uploads are broken by fog for some reason

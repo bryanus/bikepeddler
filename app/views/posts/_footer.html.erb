@@ -12,8 +12,14 @@
 	<div class="container">
 		<div class="span3">
 			<div class="title">Just Listed</div>
-				<% if Post.first.present? && Post.first.has_image? %>
-					<%= image_tag Post.first.images.order('created_at DESC').first.image_file_url(:thumb).to_s %>
+				<% if Post.last.present? && Post.last.has_image? %>
+					<div class="footer-image">
+						<%= link_to post_path(Post.last) do %>
+					 		<%= image_tag Post.last.images.order('created_at DESC').first.image_file_url(:thumb).to_s %>
+							<div class="thumbnail_text"><%= truncate(Post.last.title, :length => 30) %></div>
+							<div class="thumbnail_text_price"><%= number_to_currency( Post.last.price, :unit => currency_type(Post.last.currency)) %></div>
+						<% end %>
+					</div>	
 				<% end %>
 	</ul>
 		</div>

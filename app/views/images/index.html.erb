@@ -1,19 +1,21 @@
 <h2>Step 2: Edit photos</h2>
 
-<a id="upload-button" class="btn btn-primary">Select Images</a>
-
-<div class="hidden-upload">
-	<%= form_for [@post, @image], html: {:id => 'imageupload'}, :remote => true do |f| %>
-		<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
-	<% end %>
+<div class="span4">
+	<img src="http://pagead2.googlesyndication.com/simgad/6235916075119015141" border="0" width="300" height="600" alt="" class="img_ad">
 </div>
 
-<div id="progress" class="progress progress-striped active">
-        <div class="bar"></div>
-    </div>
+<div class="span8">
+	<a id="upload-button" class="btn btn-primary">Select Images</a>
+	<div class="hidden-upload">
+		<%= form_for [@post, @image], html: {:id => 'imageupload'}, :remote => true do |f| %>
+		<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
+		<% end %>
+	</div>
+
+	<div id="progress" class="progress progress-striped active">
+		<div class="bar"></div>
+	</div>
 
 	<%= link_to "View Your Listing", post_path(@post), :id => 'view-listing', :class => 'btn' %> 
-
-<div id="post_images">
 	<%= render 'post_images' %>
-</div>
+</div>	

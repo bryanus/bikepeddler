@@ -12,17 +12,23 @@
 
 body { 
   padding-top: 80px; 
-  background: url(paper_3.png);
+  background: url(gplaypattern.png);
 }
 
-html, body, .container { height: 100%; }
+html, body, .container { 
+  height: 100%; 
+}
+
 body > #container { height: auto; min-height: 100%; }
 
 /* @import "bootstrap-responsive"; */
 
+h4 {
+  clear: both;
+}
+
 .content {
-  background-color: #eee;
-  padding: 20px;
+  padding-top: 50px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
@@ -35,6 +41,7 @@ body > #container { height: auto; min-height: 100%; }
 .navbar .brand {
 	padding: 0px 20px 0px 0px;
   margin-left: 0px;
+  text-shadow: none;
 }
 
 .navbar .btn {
@@ -48,8 +55,8 @@ body > #container { height: auto; min-height: 100%; }
 
 .navbar-fixed-top {
   background: url(header_bg_g.png) repeat-x;
-  padding-top: 13px;
-  padding-bottom: 8px;
+  background-size: 100% 100%;
+  padding-bottom: 9px;
 }
 
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
@@ -57,25 +64,98 @@ body > #container { height: auto; min-height: 100%; }
   border-width: 0;
   box-shadow: none;
   -webkit-box-shadow: none;
+  margin-top: 20px;
 }
 
-.thumbnails {
+
+
+
+.listing_browser h2 {
+  display: inline;
+}
+
+.listing_browser select {
+  width: 175px;
+}
+
+.listing_browser .btn {
+  margin-top: -11px;
+  padding: 5px 12px 4px 12px;
+}
+
+#posts .thumbnails ul{
+  padding: 0px;
+}
+
+#post-index  li {
   margin-left: 0px;
+  margin-bottom: 10px;
+  margin-right: 13px;
+  position: relative;
+  width: 225px;
+  height: 225px;
+  background: #000;
+}
+
+#post-index li:nth-child(4n){  
+  margin-right: 0px;
 }
 
 #posts .thumbnails {
-  padding-top: 40px;
+  padding-top: 20px;
+  margin-left: 0px;
 }
 
-.thumbnail {
-  border: 9px solid #fff;
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.355);
+#posts .thumbnail:hover img{
+  opacity: .6;
+}
+
+#posts .thumbnail:hover .thumbnail_text{
+  background-color: red;
+  color: white;
+}
+
+
+#posts .thumbnail {
+  // border: 9px solid #fff;
+  // box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.355);
   // -webkit-box-shadow: none;
-  background-color: #fff;
+  background-color: none;
   -webkit-border-radius: 0;
   padding: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  
 }
 
+#posts .thumbnail_text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 215px;
+  color: #ccc;
+  font: normal 14px Helvetica, Sans-Serif;
+  background: rgba(0,0,0, 0.9);
+  padding: 5px;
+  overflow: hidden;
+}
+
+.thumbnail_text_price {
+  position: absolute;
+  float: left;
+  right: 0px;
+  bottom: 0px;
+  color: white;
+  font: normal 14px Helvetica, Sans-Serif;
+  background: #666;
+  padding: 5px;
+  overflow: hidden;
+}
+
+// .thumbnail_text_price span:nth-of-type(even){
+//   margin-right: 0px;
+// }
 
 // .thumbnails .thumbnail img{
 //   border: none;
@@ -85,19 +165,34 @@ body > #container { height: auto; min-height: 100%; }
   padding-top: 20px;
 }
 
-#post_images .thumbnails img{
-  padding: 0;
-  border: 9px solid #fff;
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.355);
-  background-color: #fff;
-  -webkit-border-radius: 0;
-  display: block;
+#post_images .thumbnails li{
+  width: 200px;
+  margin-right: 13px;
+  margin-left: 0px;
+  margin-bottom: 13px;
+  background-color: black;
 }
 
-.thumbnails li {
-  margin-left: 0px;
-  margin-bottom: 10px;
-  padding-right: 10px;
+#post_images .thumbnails img{
+  
+}
+
+#post_images .thumbnails li:nth-child(3n){
+  margin-right: 0px;
+}
+
+#post_images .thumbnails li a:hover img{
+  opacity: .6;
+}
+
+.description {
+  width: 620px;
+  padding-bottom: 20px;
+}
+
+.main_search {
+  display: inline;
+  float: right;
 }
 
 .form-search {
@@ -115,5 +210,26 @@ body > #container { height: auto; min-height: 100%; }
 
 .span8 {
   margin-left: 0px;
+  width: 630px;
+}
+
+.span4 {
+  float: right;
+  margin-left: 0px;
+}
+
+.login-area {
+  float: right;
+  clear: both;
+  margin-top: -32px;
+}
+
+.login-links a{
+  padding-left: 8px;
+}
+
+.login-links {
+  display: inline;
+  font-size: 14px;
 }
 

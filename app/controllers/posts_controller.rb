@@ -7,9 +7,9 @@ class PostsController < ApplicationController
 
 	def index
 		if params[:tag]
-			@posts = Post.tagged_with(params[:tag]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
+			@posts = Post.tagged_with(params[:tag]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 		else
-			@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
+			@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 		end
 
 		@forsale = Post.find_all_by_adtype 0

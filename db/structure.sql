@@ -397,6 +397,13 @@ CREATE INDEX index_images_on_post_id ON images USING btree (post_id);
 
 
 --
+-- Name: index_posts_on_title; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_posts_on_title ON posts USING btree (title);
+
+
+--
 -- Name: index_taggings_on_tag_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 

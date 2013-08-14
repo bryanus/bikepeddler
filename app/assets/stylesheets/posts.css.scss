@@ -26,8 +26,13 @@ footer {
 }
 
 footer .container .span3 {
+	margin-right: 13px;
 	margin-left: 0px;
-	padding-right: 10px;
+  width: 225px;
+}
+
+footer .container .span3:nth-last-child(2) {
+	margin-right: 0px;
 }
 
 footer .copyright {
@@ -66,11 +71,7 @@ footer .title {
 	width: 200px;
 }
 
-footer img {
-	padding: 8px;
-	border: 1px solid #666;
-	-webkit-border-radius: 0;
-}
+
 
 footer .social img {
 	border: none;
@@ -120,24 +121,41 @@ footer .contact input.button {
 	font: normal 11px  "Helvetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif;
 }
 
-.user-status {
-	color: #fff;
-	font-size: 13px;
-	display: inline;
-	padding-right: 10px;
+.footer-image {
+	position: relative;
+	width: 200px;
 }
 
-.user-status a{
-	color: #fff;
-	text-decoration: underline;
+.footer-image:hover .thumbnail_text{
+	background-color: red;
+  color: white;
 }
 
-.user-status a:hover{
-	color: #999;
+.footer-image img:hover{
+	opacity: 0.6;
 }
 
-.login-area {
-	float: right;
+footer .footer-image .thumbnail_text {
+	position: absolute;
+	top: 0;
+	width: 190px;
+	color: #ccc;
+	font: normal 13px Helvetica, Sans-Serif;
+	background: rgba(0, 0, 0, 0.9);
+	padding: 5px;
+	overflow: hidden;
+}
+
+footer .thumbnail_text_price {
+	position: absolute;
+	float: left;
+	right: 0px;
+	bottom: 0px;
+  color: white;
+  font: normal 13px Helvetica, Sans-Serif;
+  background: #666;
+  padding: 5px;
+  overflow: hidden;
 }
 
 input::-webkit-outer-spin-button,

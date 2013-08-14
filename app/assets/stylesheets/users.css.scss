@@ -25,3 +25,24 @@
 	color: #999;
 	display: inline;
 }
+
+
+.user-status {
+	color: #fff;
+	font-size: 14px;
+	display: inline;
+	padding-right: 10px;
+}
+
+.user-status a{
+	color: #fff;
+	text-decoration: underline;
+}
+
+.user-status a:hover{
+	color: #999;
+}
+
+.login-area {
+	float: right;
+}

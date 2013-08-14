@@ -1,3 +1,30 @@
+
+      
+       <div class="listing_browser">
+          <h2>View listings for&nbsp;</h2>
+          <select>
+            <option>Complete Bikes</option>
+            <option>Drivetrain parts</option>
+            <option>Forks and Suspension</option>
+            <option>Components</option>
+          </select>
+
+          <select>
+            <option>For Sale</option>
+            <option>Wanted</option> 
+          </select>
+          <h2>&nbsp;in&nbsp;</h2>
+          <select>
+            <option>United States</option>
+            <option>Canada</option>
+            <option>UK and Europe</option>
+            <option>Asia</option>
+            
+          </select>
+          <button class="btn" type="button">Browse</button>
+      
+        </div>
+
 <ul class="thumbnails" id="post-index">
 	<% @posts.each do |post| %>
 	<% if post.status == 0 %>
@@ -6,12 +33,12 @@
 		<div class="thumbnail">
 			<% if post.present? && post.has_image? %>
 			<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
-			<h5><%= truncate(post.title, :length => 20) %></h5>
-			<h6><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></h6>
+			<span class="thumbnail_text"><%= truncate(post.title, :length => 30, :class => "thumbnail_text") %></span>
+			<span class="thumbnail_text_price"><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></span>
 			<% else %>
-			<%= image_tag "placeholder-thumbnail.gif", :alt => "missing image" %>
-			<h5><%= truncate(post.title, :length => 20) %></h5>
-			<h6><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></h6>
+			<%= image_tag "http://lorempixel.com/225/225/", :alt => "missing image" %>
+			<span class="thumbnail_text"><%= truncate(post.title, :length => 30) %></span>
+			<span class="thumbnail_text_price"><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></span>
 			<% end %> 
 			<% end %>    
 			<!-- <p><%#= sanitize(truncate(post.description), :length => 50) %> -->
