@@ -28,24 +28,23 @@
 <ul class="thumbnails" id="post-index">
 	<% @posts.each do |post| %>
 	<% if post.status == 0 %>
-	<li>
-		<%= link_to post_path(post) do %>
-		<div class="thumbnail">
-			<% if post.present? && post.has_image? %>
-			<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
-			<span class="thumbnail_text"><%= truncate(post.title, :length => 30, :class => "thumbnail_text") %></span>
-			<span class="thumbnail_text_price"><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></span>
-			<% else %>
-			<%= image_tag "http://lorempixel.com/225/225/", :alt => "missing image" %>
-			<span class="thumbnail_text"><%= truncate(post.title, :length => 30) %></span>
-			<span class="thumbnail_text_price"><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></span>
-			<% end %> 
-			<% end %>    
-			<!-- <p><%#= sanitize(truncate(post.description), :length => 50) %> -->
-		</div>
-		<% end %>  
-
-	</li>
+  	<li>
+  		<%= link_to post_path(post) do %>
+    		<div class="thumbnail">
+    			<% if post.present? && post.has_image? %>
+      			<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
+      			<span class="thumbnail_text"><%= truncate(post.title, :length => 30, :class => "thumbnail_text") %></span>
+      			<span class="thumbnail_text_price"><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></span>
+    			<% else %>
+    			<%= image_tag random_thumbnails, :alt => "missing image" %>
+      			<span class="thumbnail_text"><%= truncate(post.title, :length => 30) %></span>
+      			<span class="thumbnail_text_price"><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></span>
+    		  <% end %> 
+    		<% end %>    
+    			<!-- <p><%#= sanitize(truncate(post.description), :length => 50) %> -->
+    		</div>
+  		<% end %>  
+  	</li>
 	<% end %>
 </ul>
 

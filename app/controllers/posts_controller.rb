@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 			format.html { }
 			format.js { render layout: false }
 		end
+
 	end
 
 	def new
@@ -100,7 +101,6 @@ class PostsController < ApplicationController
 		@post.update_attribute(:status, params[:status])
 		redirect_to user_path(current_user)
 	end
-
 
 end
 

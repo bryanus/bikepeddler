@@ -72,4 +72,26 @@ private
 
   helper_method :updated_at_time
 
+  def random_thumbnails
+    thumbnails = ["01-thumbnail.jpg",
+                  "02-thumbnail.jpg",
+                  "03-thumbnail.jpg",
+                  "04-thumbnail.jpg",
+                  "05-thumbnail.jpg",
+                  "06-thumbnail.jpg",
+                  "07-thumbnail.jpg",
+                  "08-thumbnail.jpg",
+                  "09-thumbnail.jpg",
+                  "10-thumbnail.jpg",
+                  "11-thumbnail.jpg",
+                  "12-thumbnail.jpg",
+                  "13-thumbnail.jpg",
+                  "14-thumbnail.jpg",
+                  "15-thumbnail.jpg"]
+
+    @url = 'http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/' + thumbnails.sample
+  end
+
+  helper_method :random_thumbnails
+
 end
