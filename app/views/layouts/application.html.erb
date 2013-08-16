@@ -18,64 +18,57 @@
   </head>
   <body>
 
-
-  	<div class="navbar navbar-fixed-top">
-  		<div class="container">
-  			<div class="navbar-inner">
+  	<div class="container">
+  		<div class="navbar navbar-fixed-top">
+  			<div class="container">
+  				<div class="navbar-inner">
   				<div class="brand">
   					<a href="/"><%= image_tag "hplogo.png", :alt => "Heavy Peddler" %></a>
   					<h4>Buy and Sell Bikes and Parts!</h4>
   				</div>	
-		    <!-- <ul class="nav">
-		      <li class="active"><a href="#">Forums</a></li>
-		      <li><a href="#">About</a></li>
-		      <li><a href="#">Contact</a></li>
-		    </ul> -->
+  				<div class="main_search">
+  					<% if params[:action] == 'index' && params[:controller] == 'posts' %>
+	  					<%= form_tag posts_path, :class => "form-search", :method => 'get', remote: true, :id => "posts_search" do %>
+		  					<%= text_field_tag :search, params[:search], :class => "input-xlarge" %>
+		  					<%= submit_tag "Search", :name => nil, :class => "btn" %>
+	  					<% end %>
+  					<% else %>
+	  					<%= form_tag posts_path, :class => "form-search", :method => 'get', :id => "posts_search" do %>
+		  					<%= text_field_tag :search, params[:search], :class => "input-xlarge" %>
+		  					<%= submit_tag "Search", :name => nil, :class => "btn" %>
+	  					<% end %>
+  					<% end %>
+  				</div>		    
+  				<div class="login-area">	
+  					<% if current_user %>
+	  					<div class="user-status">
+	  						Welcome <%= link_to current_user.fname, user_path(current_user) %>
+	  					</div>
+	  					<div class="login-links">	
+	  						<%= link_to "Post Ad", new_post_path %>
+	  						<%= link_to "Log Out", logout_path(current_user) %>
+  						</div>
+						<% else %>
+  						<div class="login-links">
+  							<%= link_to "Post Ad", login_path %>
+  							<%= link_to "Login", login_path %>
+  							<%= link_to "Register", signup_path %>
+  						</div>	
+						<% end %>
+					</div>
+  			</div>
+  			</div>
+
+  		</div>
 
 
-
-		    <div class="main_search">
-		    	<% if params[:action] == 'index' && params[:controller] == 'posts' %>
-		    	<%= form_tag posts_path, :class => "form-search", :method => 'get', remote: true, :id => "posts_search" do %>
-		    	<%= text_field_tag :search, params[:search], :class => "input-xlarge" %>
-		    	<%= submit_tag "Search", :name => nil, :class => "btn" %>
-		    	<% end %>
-		    	<% else %>
-		    	<%= form_tag posts_path, :class => "form-search", :method => 'get', :id => "posts_search" do %>
-		    	<%= text_field_tag :search, params[:search], :class => "input-xlarge" %>
-		    	<%= submit_tag "Search", :name => nil, :class => "btn" %>
-		    	<% end %>
-		    	<% end %>
-		    </div>		    
-		    <div class="login-area">	
-		    	<% if current_user %>
-		    	<div class="user-status">Welcome <%= link_to current_user.fname, user_path(current_user) %></div>
-		    	<div class="login-links">	
-		    		<%= link_to "Post Ad", new_post_path %>
-		    		<%= link_to "Log Out", logout_path(current_user) %>
-		    		<% else %>
-		    		<div class="login-links">
-		    			<%= link_to "Post Ad", login_path %>
-		    			<%= link_to "Login", login_path %>
-		    			<%= link_to "Register", signup_path %>
-		    			<% end %>	
-		    		</div>
-		    	</div>	
-		    </div>
-
-
-		  </div>
+  		<div class="content">
+  			<%= yield %>
+  		</div>
+  		
 		</div>
 
+		<%= render 'posts/footer' %>  	
 
-		<div class="content">
-			<div class="container">
-				<%= yield %>
-			</div>
-		</div>
-
-		<%= render 'posts/footer' %>
-
-
-	</body>
-	</html>
+ </body>
+</html>
