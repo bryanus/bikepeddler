@@ -21,7 +21,12 @@
 	<div>
 		
 		<h2><%= @post.title %></h2>
-		<h4><%= number_to_currency( @post.price, :unit => currency_type(@post.currency)) %></h4>
+		<h4>Price: <%= number_to_currency( @post.price, :unit => currency_type(@post.currency)) %></h4>
+		<h4>Location: <%= @post.zip %></h4>
+		<% unless @post.size.nil? %>
+			<h4>Size: <%= @post.size %></h4>
+		<% end %>	
+		
 		<div class="btn-group">
 		  <a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
 		    <%= @user.fname %>&nbsp;(42)

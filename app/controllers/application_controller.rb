@@ -89,7 +89,7 @@ private
                   "14-thumbnail.jpg",
                   "15-thumbnail.jpg"]
 
-    @url = 'http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/' + thumbnails.sample
+    return 'http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/' + thumbnails.sample
   end
 
   helper_method :random_thumbnails

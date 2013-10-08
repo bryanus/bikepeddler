@@ -19,16 +19,24 @@
 //= require_tree .
 
 
-// $(document).ready(function(){
-// 	$(".thumbnails li img").hover(function() {	
-// 		$(this).animate({opacity: .5}, 0);
-// 			$(this).parent().find(".thumbnail_text").css({"background-color":"red"})
-//     }, 
-
-//     function() {
-//       $(this).animate({opacity: 1.0}, 0);
-//       	$(this).parent().find(".thumbnail_text").css({"background-color":"black"})
-//     });
-
+$(document).ready(function(){
+	//show or hide div depending on selected category id
 	
-// });
+	// $("#size-field").hide();
+	// $("#post_category_id").change(function(){
+	// var category = $("#post_category_id").val();
+	// 	switch(category) {
+	// 		case "1":
+	// 		case "2":
+	// 		case "3":
+	// 		case "4":
+	// 		case "5":
+	// 			$("#size-field").show();
+	// 			break;
+	// 		default:
+	// 			$("#size-field").hide();
+	// 			break;
+	// 	}
+	// });
+
+});	

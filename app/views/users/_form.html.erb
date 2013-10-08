@@ -1,10 +1,17 @@
 <%= form_for @user do |f| %>
 	<%= render "shared/error_messages", :target => @user %>
 	
-	<%= f.text_field :fname, :class => 'input-medium', :placeholder => 'first name' %><br />
- 	<%= f.text_field :lname, :class => 'input-medium', :placeholder => 'last name' %><br />
- 	<%= f.text_field :email, :class => 'input-medium', :placeholder => 'email address' %><br />
- 	<%= f.password_field :password, :class => 'input-medium', :placeholder => 'password' %><br />
- 	<%= f.password_field :password_confirmation, :class => 'input-medium', :placeholder => 're-enter password' %><br />
+	<%= f.label :first_name %>
+	<%= f.text_field :fname, :class => 'input-medium', :placeholder => 'first name', :required => true %>
+ 	<%= f.label :last_name %>
+ 	<%= f.text_field :lname, :class => 'input-medium', :placeholder => 'last name', :required => true %>
+ 	<%= f.label :email_address %>
+ 	<%= f.text_field :email, :class => 'input-medium', :placeholder => 'email address', :required => true %>
+ 	<%= f.label :zip_code %>
+ 	<%= f.number_field :zip, :class => 'input-medium', :in => 00100..99999, :placeholder => 'zip code', :required => true %>
+ 	<%= f.label :password %>
+ 	<%= f.password_field :password, :class => 'input-medium', :placeholder => 'password', :required => true %>
+ 	<%= f.label :password_confirmation %>
+ 	<%= f.password_field :password_confirmation, :class => 'input-medium', :placeholder => 're-enter password', :required => true %>
  	<%= f.submit 'Submit', :class => 'btn btn-primary' %>
 <% end %>

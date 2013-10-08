@@ -154,7 +154,10 @@ CREATE TABLE posts (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     currency integer DEFAULT 0,
-    has_image boolean DEFAULT false
+    has_image boolean DEFAULT false,
+    zip integer,
+    size character varying(255),
+    qty integer
 );
 
 
@@ -261,7 +264,8 @@ CREATE TABLE users (
     email character varying(255),
     password_digest character varying(255),
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    zip integer
 );
 
 
@@ -447,3 +451,11 @@ INSERT INTO schema_migrations (version) VALUES ('20130805175428');
 INSERT INTO schema_migrations (version) VALUES ('20130809192418');
 
 INSERT INTO schema_migrations (version) VALUES ('20130812180256');
+
+INSERT INTO schema_migrations (version) VALUES ('20131008224259');
+
+INSERT INTO schema_migrations (version) VALUES ('20131008224309');
+
+INSERT INTO schema_migrations (version) VALUES ('20131008224319');
+
+INSERT INTO schema_migrations (version) VALUES ('20131008224333');

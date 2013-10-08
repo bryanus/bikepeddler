@@ -1,15 +1,23 @@
 <h2>Edit your profile</h2>
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user do |f| %>
+	<%= render "shared/error_messages", :target => @user %>
+
  
   <%= f.label :first_name %>
-	<%= f.text_field :fname, :class => 'input-large' %><br />
+	<%= f.text_field :fname, :class => 'input-large', :required => true %>
+
+	<%= f.label :last_name %>
+ 	<%= f.text_field :lname, :class => 'input-medium', :required => true %>
 
   <%= f.label :email_address %>
-<%= f.text_field :email, :class => 'input-large' %><br />
+	<%= f.text_field :email, :class => 'input-large', :required => true %>
+
+	<%= f.label :zip_code %>
+	<%= f.number_field :zip, :class => 'input-medium', :in => 00100..99999, :required => true %>
 
   <%= f.label :password %>
-  <%= f.password_field :password, :class => 'input-large' %><br />
+  <%= f.password_field :password, :class => 'input-large' %>
 
   <%= f.label :password_confirmation, "Confirm Password" %>
   <%= f.password_field :password_confirmation, :class => 'input-large' %><br />

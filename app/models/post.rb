@@ -2,11 +2,12 @@
 # encoding: utf-8
 
 class Post < ActiveRecord::Base
-  attr_accessible :description, :price, :title, :images, :category_id, :adtype, :currency, :has_image, :user_id, :tag_list
+  attr_accessible :description, :price, :zip, :size, :qty, :title, :images, :category_id, :adtype, :currency, :has_image, :user_id, :tag_list
   acts_as_ordered_taggable
 
   validates :title, :presence => true, :on => :create
   validates :price, :presence => true, :on => :create
+  validates :zip, :presence => true, :numericality => {:only_integer => true}, :on => :create
   validates :description, :presence => true, :on => :create
   validates :adtype, :presence => true, :on => :create
   validates :category_id, :presence => true, :on => :create
