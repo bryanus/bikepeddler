@@ -6,17 +6,38 @@ class PostsController < ApplicationController
 	before_filter :authorize, only: [:edit, :update]
 
 	def index
+
+		@post = Post.new
+		@categories = Category.all
+		@adtypes = Post.listing_types
+
+		puts params
+
 		if params[:tag]
 			@posts = Post.tagged_with(params[:tag]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
-		else
+		elsif params[:search]
 			@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+
+			# if category id is blank, sort by adtype
+
+		elsif params[:category]
+
+			if params[:category][:id] !=""
+
+				@posts = Post.where("category_id = ? AND adtype = ?", params[:category][:id].to_i, params[:adtype].to_i).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+				@category = Category.find(params[:category][:id])
+			else params[:category][:id] ==""
+
+				@posts = Post.where("adtype = ?", params[:adtype].to_i).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+
+			end
+
+		else
+
+			@posts = Post.order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 		end
 
-		@forsale = Post.find_all_by_adtype 0
-		@wanted = Post.find_all_by_adtype 1
-		@trade = Post.find_all_by_adtype 2
-
-		@category_bikes = Post.find_all_by_category_id 1
+		
 
 		respond_to do |format|
 			format.html { }
@@ -36,7 +57,7 @@ class PostsController < ApplicationController
 
 	def show
 
-		@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 15, :page => params[:page])
+		@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 
 		@post = Post.find(params[:id])
 		@user = User.find(@post.user_id)

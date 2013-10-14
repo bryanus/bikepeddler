@@ -39,4 +39,11 @@ $(document).ready(function(){
 	// 	}
 	// });
 
+	// $("#browse-button").click(function(){
+	// 	var category = $("#category_id").val();
+	// 	var adtype = $("#adtype").val();	
+	// 	console.log(category);
+	// 	console.log(adtype);
+
+	// });
 });	

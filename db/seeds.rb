@@ -29,12 +29,12 @@ User.create!(fname: "Bryan",
                    password_confirmation: password)
     end
 
-    64.times do
+    100.times do
       Post.create!(title: Faker::Lorem.sentence(rand(2..10)).chomp('.'),
                    description: Faker::Lorem.paragraphs(rand(2..8)).join("\n\n"),
-                   price: rand(50..1999),
+                   price: rand(12..1999),
                    zip: rand(00100..99999),
                    user_id: rand(1..6),
-                   category_id: rand(1..6),
-                   adtype: rand(0..1))
+                   category_id: rand(1..30),
+                   adtype: rand(0..2))
     end

@@ -30,7 +30,9 @@ h4 {
   clear: both;
 }
 
-
+#sortfilter {
+  display: inline;
+}
 
 .content {
   padding-top: 50px;
@@ -77,7 +79,7 @@ h4 {
 }
 
 .listing_browser select {
-  width: 175px;
+  width: auto;
 }
 
 .listing_browser .btn {
