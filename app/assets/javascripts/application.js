@@ -20,30 +20,21 @@
 
 
 $(document).ready(function(){
-	//show or hide div depending on selected category id
+	//show or hide price field div depending on selected category id
 	
-	// $("#size-field").hide();
-	// $("#post_category_id").change(function(){
-	// var category = $("#post_category_id").val();
-	// 	switch(category) {
-	// 		case "1":
-	// 		case "2":
-	// 		case "3":
-	// 		case "4":
-	// 		case "5":
-	// 			$("#size-field").show();
-	// 			break;
-	// 		default:
-	// 			$("#size-field").hide();
-	// 			break;
-	// 	}
-	// });
+	$("#post_adtype").change(function(){
+	var adtype = $("#post_adtype").val();
+		switch(adtype) {
+			case "1":
+				$("#price-field").hide(300);
+				break;
+			case "2":
+				$("#price-field").hide(300);
+				break;
+			default:
+				$("#price-field").show(300);
+				break;
+		}
+	});
 
-	// $("#browse-button").click(function(){
-	// 	var category = $("#category_id").val();
-	// 	var adtype = $("#adtype").val();	
-	// 	console.log(category);
-	// 	console.log(adtype);
-
-	// });
 });	

@@ -6,20 +6,18 @@
  	<%= f.collection_select :category_id, @categories, :id, :name, :include_blank => 'Select Category' %><br />
  	Title<br>
  	<%= f.text_field :title, :class => 'input-xxlarge', :required => true %><br />
- 	
- 	Price (e.g. 400.00)<br>
- 	<%= f.number_field :price, :class => 'input-medium',  :in => 0..999999.99, :required => true %> <%= f.select :currency, options_for_select(Post.currency_types, @post.currency) %><br>
-	
+ 	<div id="price-field">
+	 	Price (e.g. 400.00)<br>
+	 	<%= f.number_field :price, :class => 'input-medium',  :in => 0..999999.99 %> <%= f.select :currency, options_for_select(Post.currency_types, @post.currency) %><br>
+	</div>
 	Location Zip Code (5-digits only)<br>
  		<%= f.number_field :zip, :class => 'input-medium', :in => 00100..99999, :required => true %><br />
  	
  	Quantity<br>
  		<%= f.number_field :qty, :class => 'input-medium', :in => 1..99, :value => 1, :required => true %><br />
 
- 	<div id="size-field">
  	Size (if applicable)<br>
  		<%= f.text_field :size, :class => 'input-medium' %><br />
- 	</div>
  		
 	Description<br>
 	 	<%= f.text_area :description, :rows => '10', :class => 'input-xxlarge', :required => true %><br />

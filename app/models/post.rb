@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
   acts_as_ordered_taggable
 
   validates :title, :presence => true, :on => :create
-  validates :price, :presence => true, :on => :create
   validates :zip, :presence => true, :numericality => {:only_integer => true}, :on => :create
   validates :description, :presence => true, :on => :create
   validates :adtype, :presence => true, :on => :create
