@@ -1,4 +1,5 @@
 Bikepeddler::Application.routes.draw do
+  
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -14,8 +15,8 @@ Bikepeddler::Application.routes.draw do
   end
 
   resources :comments
-
   resources :users
   resources :sessions
+  resources :password_resets
 
 end

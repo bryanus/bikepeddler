@@ -1,9 +1,3 @@
-<!-- <ul class="breadcrumb">
-  <li><a href="#">Home</a> <span class="divider">/</span></li>
-  <li><a href="#">Library</a> <span class="divider">/</span></li>
-  <li class="active">Data</li>
-</ul> -->
-
 <div class="span4">
 	<img src="http://pagead2.googlesyndication.com/simgad/6235916075119015141" border="0" width="300" height="600" alt="" class="img_ad">
 </div>
@@ -23,13 +17,13 @@
 		<h2><%= @post.title %></h2>
 		<h4>Price: <%= number_to_currency( @post.price, :unit => currency_type(@post.currency)) %></h4>
 		<h4>Location: <%= @post.zip %></h4>
-		<% unless @post.size.nil? %>
+		<% unless @post.size.nil? || @post.size.empty? %>
 			<h4>Size: <%= @post.size %></h4>
 		<% end %>	
 		
 		<div class="btn-group">
-		  <a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-		    <%= @user.fname %>&nbsp;(42)
+		  	<a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+		    <%= @user.username %>&nbsp;(42)
 		    <span class="caret"></span>
 		  </a>
 		  <ul class="dropdown-menu">

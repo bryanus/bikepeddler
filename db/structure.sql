@@ -265,7 +265,11 @@ CREATE TABLE users (
     password_digest character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    zip integer
+    zip integer,
+    auth_token character varying(255),
+    password_reset_token character varying(255),
+    password_reset_sent_at timestamp without time zone,
+    username character varying(255)
 );
 
 
@@ -459,3 +463,9 @@ INSERT INTO schema_migrations (version) VALUES ('20131008224309');
 INSERT INTO schema_migrations (version) VALUES ('20131008224319');
 
 INSERT INTO schema_migrations (version) VALUES ('20131008224333');
+
+INSERT INTO schema_migrations (version) VALUES ('20131015180909');
+
+INSERT INTO schema_migrations (version) VALUES ('20131015183147');
+
+INSERT INTO schema_migrations (version) VALUES ('20131016192954');

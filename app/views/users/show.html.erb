@@ -1,12 +1,15 @@
 <% if correct_user(@user) %> <!-- if logged in and user id matches logged in id. What is a better way to do this? -->
 
 	<div class="user-profile">
-		<h2>Your Profile</h2><%= link_to "Edit Profile", edit_user_path(current_user), class: "btn" %>
+		<h3>Your Profile</h3>
+		<%= image_tag @user.gravatar_url, :default => "default_gravatar_64x64.gif", :class => 'gravatar' %>
 	</div>
 	<div class="user-info">
-		<%= image_tag @user.gravatar_url, :default => "default_gravatar_64x64.gif", :class => 'gravatar' %>
-		Name: <%= @user.fname %><br />
-		Email address: <%= @user.email %><br />
+		<%= @user.username %><br />
+		<%= @user.fname %> <%= @user.lname %><br />
+		<%= @user.email %><br />
+		<%= @user.zip %><br />
+		<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn" %>
 	</div>	
 <% end %>
 

@@ -1,4 +1,4 @@
-<h2>Listings for <%= @user.fname %></h2>
+<h3>Listings for <%= @user.fname %></h3>
 	
 	<% unless @user.posts.empty? %> <!-- unless there are no posts for the user -->
 		<% @user.posts.order('id DESC').each do |post| %>

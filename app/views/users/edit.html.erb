@@ -1,9 +1,10 @@
-<h2>Edit your profile</h2>
-
 <%= form_for @user do |f| %>
 	<%= render "shared/error_messages", :target => @user %>
 
- 
+  <h2>Edit your profile</h2>
+
+  <strong>Username: <%= @user.username %></strong>
+  <small>(Note: Your username can not be changed.)</small><br />
   <%= f.label :first_name %>
 	<%= f.text_field :fname, :class => 'input-large', :required => true %>
 
@@ -22,5 +23,5 @@
   <%= f.label :password_confirmation, "Confirm Password" %>
   <%= f.password_field :password_confirmation, :class => 'input-large' %><br />
 
-  <%= f.button "Cancel", class: "btn" %> <%= f.submit "Save changes", class: "btn btn-primary" %>
+  <%= f.submit "Save changes", class: "btn btn-primary" %><%= f.button "Cancel", class: "btn" %>
 <% end %>

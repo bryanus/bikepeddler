@@ -26,6 +26,10 @@ body > .container {
 
 /* @import "bootstrap-responsive"; */
 
+h2, h3 {
+  color: #000;
+}
+
 h4 {
   clear: both;
 }
@@ -237,3 +241,6 @@ h4 {
   font-size: 14px;
 }
 
+#upload-button {
+  display: inline;
+}

@@ -1,17 +1,20 @@
 <%= form_for @user do |f| %>
 	<%= render "shared/error_messages", :target => @user %>
+	<%= f.text_field :username, :class => 'input-medium', :placeholder => 'username', :required => true %>
 	
-	<%= f.label :first_name %>
+	<small>(Your username will be used as your display handle on ads, comments, etc. Your username can not be changed.)</small>
+	<br />
 	<%= f.text_field :fname, :class => 'input-medium', :placeholder => 'first name', :required => true %>
- 	<%= f.label :last_name %>
+ 	
  	<%= f.text_field :lname, :class => 'input-medium', :placeholder => 'last name', :required => true %>
- 	<%= f.label :email_address %>
+ 	<br />
  	<%= f.text_field :email, :class => 'input-medium', :placeholder => 'email address', :required => true %>
- 	<%= f.label :zip_code %>
+ 	<br />
  	<%= f.number_field :zip, :class => 'input-medium', :in => 00100..99999, :placeholder => 'zip code', :required => true %>
- 	<%= f.label :password %>
+ <br />
  	<%= f.password_field :password, :class => 'input-medium', :placeholder => 'password', :required => true %>
- 	<%= f.label :password_confirmation %>
- 	<%= f.password_field :password_confirmation, :class => 'input-medium', :placeholder => 're-enter password', :required => true %>
- 	<%= f.submit 'Submit', :class => 'btn btn-primary' %>
+ 	
+ 	<%= f.password_field :password_confirmation, :class => 'input-medium', :placeholder => 'password confirmation', :required => true %>
+ 	<br />
+ 	<%= f.submit 'Create Account', :class => 'btn btn-primary' %>
 <% end %>
