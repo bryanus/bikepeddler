@@ -97,10 +97,6 @@ GEM
     newrelic_rpm (3.6.4.122)
     nokogiri (1.5.10)
     pg (0.15.1)
-    pg_search (0.7.0)
-      activerecord (>= 3.1)
-      activesupport (>= 3.1)
-      arel
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -180,7 +176,6 @@ DEPENDENCIES
   mini_magick
   newrelic_rpm
   pg
-  pg_search
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   shadowbox-rails

@@ -13,7 +13,7 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'faker'
 
-gem 'pg_search'
+# gem 'pg_search'
 
 gem 'acts-as-taggable-on'
 
