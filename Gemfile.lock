@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
+    acts_as_indexed (0.8.3)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     better_errors (0.9.0)
@@ -164,6 +165,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  acts_as_indexed
   bcrypt-ruby (~> 3.0.0)
   better_errors
   bootstrap-sass

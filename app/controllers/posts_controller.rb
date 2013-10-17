@@ -16,9 +16,7 @@ class PostsController < ApplicationController
 		if params[:tag]
 			@posts = Post.tagged_with(params[:tag]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 		elsif params[:search]
-			@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
-
-			# if category id is blank, sort by adtype
+			@posts = Post.with_query(params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 
 		elsif params[:category]
 
@@ -57,7 +55,7 @@ class PostsController < ApplicationController
 
 	def show
 
-		@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+		#@posts = Post.text_search(params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 
 		@post = Post.find(params[:id])
 		@user = User.find(@post.user_id)

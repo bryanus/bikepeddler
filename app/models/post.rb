@@ -4,6 +4,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :description, :price, :zip, :size, :qty, :title, :images, :category_id, :adtype, :currency, :has_image, :user_id, :tag_list
   acts_as_ordered_taggable
+  acts_as_indexed :fields => [:title, :description, :zip, :tag_list]
 
   validates :title, :presence => true, :on => :create
   validates :zip, :presence => true, :numericality => {:only_integer => true}, :on => :create
@@ -18,11 +19,11 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
-  include PgSearch
-  pg_search_scope :search, against: [:title, :description],
-    using: {tsearch: {dictionary: "english"}},
-    associated_against: {user: [:fname, :lname]},
-    ignoring: :accents
+  # include PgSearch
+  # pg_search_scope :search, against: [:title, :description],
+  #   using: {tsearch: {dictionary: "english"}},
+  #   associated_against: {user: [:fname, :lname]},
+  #   ignoring: :accents
 
   def self.listing_types
   	adtypes = [['For Sale',0], ['Wanted',1], ['Trade',2]]
@@ -32,13 +33,13 @@ class Post < ActiveRecord::Base
     currencies = [['$ USD',0], ['$ CAD',1], ['£ GPB',2], ['€ Euro',3]]
   end
 
-  def self.text_search(query)
-    if query.present?
-      search(query)
-    else
-      scoped
-    end
-  end
+  # def self.text_search(query)
+  #   if query.present?
+  #     search(query)
+  #   else
+  #     scoped
+  #   end
+  # end
   
 
 
