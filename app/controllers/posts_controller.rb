@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 		if params[:tag]
 			@posts = Post.tagged_with(params[:tag]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 		elsif params[:search]
-			@posts = Post.with_query(params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+			@posts = Post.with_query('^' + params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
 
 		elsif params[:category]
 
