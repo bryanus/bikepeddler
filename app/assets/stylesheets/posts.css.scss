@@ -10,7 +10,7 @@
 	background-color: #cfcfcf;
 	padding: 5px;
 	font-style: italic;
-	font-weight: bold;
+	font-weight: 900;
 }
 
 
@@ -26,13 +26,13 @@ footer {
 	 background-color: #2a2a2a;
 }
 
-footer .container .span3 {
+footer .container .col-md-3 {
 	margin-right: 13px;
 	margin-left: 0px;
   width: 225px;
 }
 
-footer .container .span3:nth-last-child(2) {
+footer .container .col-md-3:nth-last-child(2) {
 	margin-right: 0px;
 }
 

@@ -1,8 +1,8 @@
-<div class="span4">
+<div class="col-md-4">
   <img src="http://pagead2.googlesyndication.com/simgad/6235916075119015141" border="0" width="300" height="600" alt="" class="img_ad">
 </div>
 
-<div class="span8">
+<div class="col-md-8">
 <h3>Create a new password</h3>
   <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
     <%= render "shared/error_messages", :target => @user %>

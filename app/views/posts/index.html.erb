@@ -8,7 +8,7 @@
 		<%= collection_select :category, :id, @categories, :id, :name, :include_blank => 'All' %>
 		<!-- I pass in params[:adtype], and use that to show the selected value -->
 		<%= select_tag :adtype, options_for_select(@adtypes, params[:adtype]) %>
-		<input type="submit" value="Browse" class="btn">
+		<input type="submit" value="Browse" class="btn btn-default">
 	</form>
 </div>
 

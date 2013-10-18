@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
   
   before_create { generate_token(:auth_token) }
   
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def send_password_reset
     generate_token(:password_reset_token)

@@ -1,4 +1,4 @@
-@import "bootstrap";
+// @import "bootstrap";
 @import 'shadowbox';
 
 /* shadowbox */
@@ -22,16 +22,22 @@ html, body, {
 body > .container { 
   height: auto; 
   min-height: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 940px;
 }
 
 /* @import "bootstrap-responsive"; */
 
 h2, h3 {
   color: #000;
+  font-weight: 900;
 }
 
 h4 {
   clear: both;
+  font-weight: 900;
+  color: #666;
 }
 
 .alert h4 {
@@ -49,13 +55,13 @@ h4 {
   box-shadow: none;
 }
 
-.navbar .brand {
+.navbar .navbar-brand {
 	padding: 0px 20px 0px 0px;
   margin-left: 0px;
   text-shadow: none;
 }
 
-.navbar .btn {
+.navbar .btn-default {
   margin: auto;
 }
 
@@ -78,8 +84,9 @@ h4 {
   margin-top: 20px;
 }
 
-
-
+.navbar > .container .navbar-brand {
+  margin-left: 0px;
+}
 
 .listing_browser h2 {
   display: inline;
@@ -89,7 +96,7 @@ h4 {
   width: auto;
 }
 
-.listing_browser .btn {
+.listing_browser .btn-default {
   margin-top: -11px;
   padding: 5px 12px 4px 12px;
 }
@@ -100,12 +107,14 @@ h4 {
 
 #post-index  li {
   margin-left: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 13px;
   margin-right: 13px;
   position: relative;
   width: 225px;
   height: 225px;
   background: #000;
+  float: left;
+  list-style: none;
 }
 
 #post-index li:nth-child(4n){  
@@ -114,20 +123,20 @@ h4 {
 
 #posts .thumbnails {
   padding-top: 20px;
-  margin-left: 0px;
+  padding-left: 0px;
 }
 
-#posts .thumbnail:hover img{
+#posts .img-thumbnail:hover img{
   opacity: .6;
 }
 
-#posts .thumbnail:hover .thumbnail_text{
+#posts .img-thumbnail:hover .thumbnail_text{
   background-color: red;
   color: white;
 }
 
 
-#posts .thumbnail {
+#posts .img-thumbnail {
   // border: 9px solid #fff;
   // box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.355);
   // -webkit-box-shadow: none;
@@ -144,7 +153,7 @@ h4 {
   position: absolute;
   left: 0;
   top: 0;
-  width: 215px;
+  width: 225px;
   color: #ccc;
   font: normal 14px Helvetica, Sans-Serif;
   background: rgba(0,0,0, 0.9);
@@ -201,6 +210,13 @@ h4 {
   padding-bottom: 20px;
 }
 
+
+.pagination {
+  display: block;
+  clear: both;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
 .main_search {
   display: inline;
   float: right;
@@ -210,7 +226,7 @@ h4 {
   display: inline;
 }
 
-.row-fluid {
+.row {
     clear: both;
 }
 
@@ -219,12 +235,12 @@ h4 {
   padding-top: 10px;
 }
 
-.span8 {
+.col-md-8 {
   margin-left: 0px;
-  width: 630px;
+  width: 626px;
 }
 
-.span4 {
+.col-md-4 {
   float: right;
   margin-left: 0px;
 }

@@ -2,14 +2,16 @@
 
 	<div class="user-profile">
 		<h3>Your Profile</h3>
-		<%= image_tag @user.gravatar_url, :default => "default_gravatar_64x64.gif", :class => 'gravatar' %>
+		<div class="gravatar">
+			<%= image_tag @user.gravatar_url, :default => "default_gravatar_64x64.gif", :class => 'gravatar' %>
+		</div>
 	</div>
 	<div class="user-info">
-		<%= @user.username %><br />
+		<strong><%= @user.username %></strong><br />
 		<%= @user.fname %> <%= @user.lname %><br />
 		<%= @user.email %><br />
 		<%= @user.zip %><br />
-		<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn" %>
+		<%= link_to "Edit Profile", edit_user_path(current_user), :class => "btn btn-default btn-xs" %>
 	</div>	
 <% end %>
 

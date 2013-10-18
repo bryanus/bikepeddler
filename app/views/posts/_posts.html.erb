@@ -4,7 +4,7 @@
 	<% if post.status == 0 %>
   	<li>
   		<%= link_to post_path(post) do %>
-    		<div class="thumbnail">
+    		<div class="img-thumbnail">
     			<% if post.present? && post.has_image? %>
       			<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
       			<span class="thumbnail_text"><%= truncate(post.title, :length => 30, :class => "thumbnail_text") %></span>
@@ -22,4 +22,6 @@
 	<% end %>
 </ul>
 
-<%= will_paginate @posts, :class => 'pagination pagination-small pagination-centered' %>
+<div class="centered">
+  <%= will_paginate @posts, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-sm' %>
+</div>

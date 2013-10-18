@@ -22,7 +22,7 @@
   		<div class="navbar navbar-fixed-top">
   			<div class="container">
   				<div class="navbar-inner">
-  				<div class="brand">
+  				<div class="navbar-brand">
   					<a href="/"><%= image_tag "hplogo.png", :alt => "Heavy Peddler" %></a>
   					<h4>Buy and Sell Vintage Bikes and Parts!</h4>
   				</div>	
@@ -30,12 +30,12 @@
   					<% if params[:action] == 'index' && params[:controller] == 'posts' %>
 	  					<%= form_tag posts_path, :class => "form-search", :method => 'get', remote: true, :id => "posts_search" do %>
 		  					<%= text_field_tag :search, params[:search], :class => "input-xlarge" %>
-		  					<%= submit_tag "Search", :name => nil, :class => "btn" %>
+		  					<%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
 	  					<% end %>
   					<% else %>
 	  					<%= form_tag posts_path, :class => "form-search", :method => 'get', :id => "posts_search" do %>
 		  					<%= text_field_tag :search, params[:search], :class => "input-xlarge" %>
-		  					<%= submit_tag "Search", :name => nil, :class => "btn" %>
+		  					<%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
 	  					<% end %>
   					<% end %>
   				</div>		    

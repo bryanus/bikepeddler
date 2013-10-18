@@ -7,7 +7,7 @@
 	padding-top: 10px;
 }
 
-.user-info .btn {
+.user-info .btn-default {
 	margin-top: 10px;
 }
 
@@ -19,9 +19,8 @@
 	margin-bottom: 5px;
 }
 
-.btn.btn-primary {
+.btn-primary {
 	margin-right: 5px;
-	margin-bottom: 5px;
 }
 
 .sold {
@@ -30,6 +29,39 @@
 	display: inline;
 }
 
+.username {
+	font-weight: 900;
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.username small {
+	display: block;
+	font-weight: normal;
+}
+
+#user-edit h3 {
+	display: inline;
+}
+#user-edit .btn-xs {
+	margin-top: -9px;
+	margin-left: 10px;
+}
+
+#user-edit .form-control {
+	width: 20%;
+}
+
+#user-edit label {
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+#reg-form .form-control {
+	width: 30%;
+	margin-bottom: 15px;
+}
 
 .user-status {
 	color: #fff;
@@ -51,8 +83,8 @@
 	float: right;
 }
 
-.gravatar {
-	width: 50px;
+.gravatar img{
+	width: 50px; //default is 64x64px
 	background-color: #fff;
 	display: block;
 }
@@ -61,4 +93,9 @@
 	display: inline;
 	float: left;
 	margin-right: 10px;
+}
+
+.listings ul {
+	list-style: none;
+	-webkit-padding-start: 10px;
 }

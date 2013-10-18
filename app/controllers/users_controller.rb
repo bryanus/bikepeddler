@@ -43,5 +43,13 @@ class UsersController < ApplicationController
     end
 	end
 
+	def destroy
+		@user = User.destroy(params[:id])
+		# @user.posts.each{|post| post.destroy}
+		# should we delete all of tehir comments also? nah.
+		# @user.comments.each{|post| post.destroy}
+		redirect_to logout_path(@user)
+	end
+
 
 end
