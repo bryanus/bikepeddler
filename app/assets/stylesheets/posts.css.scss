@@ -18,7 +18,7 @@ footer {
 	 clear: both;
 	 color: #666;
 	 position: relative;
-	 height: 281px;
+	 height: auto;
 	 width: 100%;
 	 z-index: 10;
 	 padding-bottom: 30px;
@@ -48,7 +48,7 @@ footer .resources ul {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
-	width: 110px;
+	width: 90px;
 	float: left;
 	margin-top: 10px;
 }
@@ -101,7 +101,7 @@ footer .social img {
 
 footer .contact input.input_type {
 	height: 22px;
-	width: 139px;
+	//width: 139px;
 	line-height: 20px;
 	padding: 0;
 	float: left;
@@ -124,7 +124,10 @@ footer .contact input.button {
 
 .footer-image {
 	position: relative;
-	width: 200px;
+}
+
+.footer-image img {
+	max-width: 200px;
 }
 
 .footer-image:hover .thumbnail_text{
@@ -139,7 +142,7 @@ footer .contact input.button {
 footer .footer-image .thumbnail_text {
 	position: absolute;
 	top: 0;
-	width: 190px;
+	width: 200px;
 	color: #ccc;
 	font: normal 13px Helvetica, Sans-Serif;
 	background: rgba(0, 0, 0, 0.9);
@@ -148,15 +151,7 @@ footer .footer-image .thumbnail_text {
 }
 
 footer .thumbnail_text_price {
-	position: absolute;
-	float: left;
-	right: 0px;
-	bottom: 0px;
-  color: white;
-  font: normal 13px Helvetica, Sans-Serif;
-  background: #666;
-  padding: 5px;
-  overflow: hidden;
+	right: -5px;
 }
 
 input::-webkit-outer-spin-button,
@@ -170,8 +165,9 @@ input::-webkit-inner-spin-button {
 	width: 100px;
 }
 
-#progress {
-	display:none;
+.progress {
+	margin-top: 20px;
+	margin-bottom: 0px;
 }
 
 .bar {
@@ -190,3 +186,32 @@ input::-webkit-inner-spin-button {
 	left: -1000px;
 }
 
+
+//post form group
+
+.form-control-medium {
+	width: 300px;
+}
+
+.form-control-small {
+	width: 100px;
+}
+
+#post_price {
+	display: inline;
+}
+
+.form-label {
+	padding-top: 15px;
+	padding-bottom: 2px;
+	font-weight: 900;
+}
+
+.submit-group {
+	padding-top: 10px;
+	padding-bottom: 60px;
+}
+
+.submit-group .btn.btn-primary {
+	margin-right: 5px;
+}

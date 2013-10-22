@@ -1,21 +1,26 @@
 <h2>Step 2: Edit photos</h2>
 
-<div class="col-md-4">
-	<img src="http://pagead2.googlesyndication.com/simgad/6235916075119015141" border="0" width="300" height="600" alt="" class="img_ad">
-</div>
+
 
 <div class="col-md-8">
-	<a id="upload-button" class="btn btn-primary">Select Images</a>
+	<div class="btn-group">
+		<a id="upload-button" class="btn btn-primary">Select Images</a>
+		<%= link_to "Finished with Uploads", post_path(@post), :id => 'view-listing', :class => 'btn btn-default' %> 
+	</div>
 	<div class="hidden-upload">
 		<%= form_for [@post, @image], html: {:id => 'imageupload'}, :remote => true do |f| %>
-		<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
+			<%= f.file_field :image, multiple: :true, name: "image[image_file]" %>
 		<% end %>
 	</div>
 
-	<div id="progress" class="progress progress-striped active">
-		<div class="bar"></div>
+	<div class="progress progress-striped active">
+		<div class="progress-bar progress-bar-success"></div>
 	</div>
-
-	<%= link_to "View Your Listing", post_path(@post), :id => 'view-listing', :class => 'btn' %> 
-	<%= render 'post_images' %>
+	<div class="row" id="post-images">	
+  	<%= render 'post_images' %>
+  </div>
 </div>	
+
+<div class="col-md-4">
+	<img src="http://pagead2.googlesyndication.com/simgad/6235916075119015141" border="0" width="300" height="600" alt="" class="img_ad">
+</div>

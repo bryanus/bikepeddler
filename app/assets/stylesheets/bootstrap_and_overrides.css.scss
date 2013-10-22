@@ -1,4 +1,3 @@
-// @import "bootstrap";
 @import 'shadowbox';
 
 /* shadowbox */
@@ -43,9 +42,6 @@ h4 {
 .alert h4 {
   margin: inherit;
 }
-#sortfilter {
-  display: inline;
-}
 
 .content {
   padding-top: 50px;
@@ -88,17 +84,23 @@ h4 {
   margin-left: 0px;
 }
 
-.listing_browser h2 {
+.listing-browser h2 {
   display: inline;
 }
 
-.listing_browser select {
+.listing-browser select {
   width: auto;
+  border: 1px solid #ccc;
+  height: 34px;
+  line-height: 30px;
 }
 
-.listing_browser .btn-default {
-  margin-top: -11px;
-  padding: 5px 12px 4px 12px;
+.listing-browser .dropdown {
+  display: inline;
+}
+
+#sortfilter {
+  display: inline;
 }
 
 #posts .thumbnails ul{
@@ -181,27 +183,33 @@ h4 {
 //   border: none;
 //   box-shadow: none;
 // }
-#post_images .thumbnails {
+#post-images .thumbnails {
   padding-top: 20px;
 }
 
-#post_images .thumbnails li{
+#post-images ul {
+  list-style: none;
+  -webkit-padding-start: 0px;
+}
+
+#post-images .thumbnails li{
   width: 200px;
   margin-right: 13px;
   margin-left: 0px;
   margin-bottom: 13px;
   background-color: black;
+  float: left;
 }
 
-#post_images .thumbnails img{
-  
+#post-images .thumbnails img{
+  max-width: 200px;
 }
 
-#post_images .thumbnails li:nth-child(3n){
+#post-images .thumbnails li:nth-child(3n){
   margin-right: 0px;
 }
 
-#post_images .thumbnails li a:hover img{
+#post-images .thumbnails li a:hover img{
   opacity: .6;
 }
 
@@ -217,12 +225,12 @@ h4 {
   padding-top: 20px;
   padding-bottom: 40px;
 }
-.main_search {
+.main-search {
   display: inline;
   float: right;
 }
 
-.form-search {
+.main-search .form-control-medium {
   display: inline;
 }
 
@@ -260,6 +268,6 @@ h4 {
   font-size: 14px;
 }
 
-#upload-button {
-  display: inline;
-}
+// #upload-button {
+//   display: inline;
+// }

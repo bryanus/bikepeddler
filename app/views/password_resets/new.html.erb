@@ -1,6 +1,11 @@
-<%= form_tag password_resets_path, :method => :post do %>
-  <div class="field">
-    <%= text_field_tag :email, params[:email], :placeholder => 'email address' %>
+<div class="form-inline">
+	<h3>Reset your password</h3>
+	<%= form_tag password_resets_path, :method => :post do %>
+  <div class="form-group">
+    <%= text_field_tag :email, params[:email], :class => 'form-control', :placeholder => 'email address' %>
   </div>
-  <div class="actions"><%= submit_tag "Reset Password" %></div>
+ 
+ 		<%= submit_tag "Reset Password", :class => 'btn btn-primary' %> <%= link_to "Cancel", root_url, class: "btn btn-default" %>
+ 	
 <% end %>
+</div>

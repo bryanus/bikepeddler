@@ -3,66 +3,60 @@
 </div>
 
 <div class="col-md-8">
-	<% if session[:user_id] == @post.user_id && @post.status == 0  %>
+	
+	<% if cookies[:auth_token] == @user.auth_token && @post.status == 0  %>
 		<div class="edit-buttons">
-			<%= link_to 'edit', edit_post_path(@post), :class => 'btn btn-inverse' %>
+			<%= link_to 'edit', edit_post_path(@post), :class => 'btn btn-warning btn-xs' %>
 			<%#= link_to 'upload photos', new_post_image_path(@post) %>
-			<%= link_to 'delete', @post, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+			<%= link_to 'delete', @post, method: :delete, :class => 'btn btn-warning btn-xs', data: { confirm: "Are you sure?" } %>
 		</div>
-		<% elsif @post.status == 1 %>
-			<div class="marked-sold">This transaction was completed on <%= updated_at_time(@post) %></div>	
+	<% elsif @post.status == 1 %>
+		<div class="marked-sold">This transaction was completed on <%= updated_at_time(@post) %></div>	
 	<% end %>
-	<div>
+	
 		
-		<h2><%= @post.title %></h2>
-		<h4>Price: <%= number_to_currency( @post.price, :unit => currency_type(@post.currency)) %></h4>
-		<h4>Location: <%= @post.zip %></h4>
-		<% unless @post.size.nil? || @post.size.empty? %>
-			<h4>Size: <%= @post.size %></h4>
-		<% end %>	
-		
-		<div class="btn-group">
-		  	<button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
-		    <%= @user.username %>&nbsp;(42)
-		    <span class="caret"></span>
-		  
-		  <ul class="dropdown-menu">
-		    <% if current_user %>
-					<li><%= mail_to @user.email, 'Contact Seller' %></li>
-					<li><%= link_to 'View Other Listings', user_path(@user) %></li>		
-				<% else %>
-					<li><%= link_to 'Contact Seller', login_path %></li>
-					<li><%= link_to 'View Other Listings', user_path(@user) %></li>
-				<% end %>		
-		  </ul>
-		</div>
-		
-	</div>	
+	<h2><%= @post.title %></h2>
+	<h4>Price: <%= number_to_currency( @post.price, :unit => currency_type(@post.currency)) %></h4>
+	<h4>Location: <%= @post.zip %></h4>
 
+	<% unless @post.size.nil? || @post.size.empty? %>
+		<h4>Size: <%= @post.size %></h4>
+	<% end %>	
+		
+		<!-- Split button -->
+	<div class="btn-group">
+		<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+			<%= @user.username %>&nbsp;(42)&nbsp;<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<% if current_user %>
+				<li role="menu"><%= mail_to @user.email, 'Contact Seller' %></li>
+				<li><%= link_to 'View Other Listings', user_path(@user) %></li>		
+			<% else %>
+				<li><%= link_to 'Contact Seller', login_path %></li>
+				<li><%= link_to 'View Other Listings', user_path(@user) %></li>
+			<% end %>		
+		</ul>
+	</div>
 
 	<div class="description">
 		<%= simple_format(@post.description) %>
 	</div>
-		<div class="row" id="post_images">
-			
-			  <ul class="thumbnails">
-			    <% @post.images.order('created_at ASC').each do |pic| %>
-			     	<li>
-			     		<%= link_to image_tag(pic.image_file.url(:thumb).to_s), pic.image_file_url, rel: 'shadowbox[gallery]' %>	
-							
+		<div class="row" id="post-images">
+			<ul class="thumbnails">
+				<% @post.images.order('created_at ASC').each do |pic| %>
+					<li><%= link_to image_tag(pic.image_file.url(:thumb).to_s), pic.image_file_url, rel: 'shadowbox[gallery]' %></li>
+				<% end %>
+			</ul>
+		</div>
+		
+		<% unless @post.tag_list.empty? %>
+			<p>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+		<% end %>	
 
-							<%#= link_to 'Remove', post_image_path(@post, pic.id), :confirm => "Delete this photo?", :method => 'delete' %>
-						</li>
-			    <% end %>
-			  </ul>
-			</div>
-			<% unless @post.tag_list.empty? %>
-				<p>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-			<% end %>	
-	
-	<div class="comments">
-		<h3>Comments</h3>
-		<% @comments.each do |comment| %>
+		<div class="comments">
+			<h3>Comments</h3>
+			<% @comments.each do |comment| %>
 			<ul>
 				<li>
 					<div class="gravatar">
@@ -71,7 +65,7 @@
 					<div class="author">
 						posted by <%= link_to comment.user.fname, user_path(comment.user_id) %> <%= time_ago_in_words(comment.created_at) %> ago
 						<% if check_time_since_post(comment) && correct_user(comment.user) %>
-							<%= link_to "Edit", edit_comment_path(comment), :class => "btn btn-xs" %>
+						<%= link_to "Edit", edit_comment_path(comment), :class => "btn btn-xs" %>
 						<% end %>	
 					</div>
 					<div class="comment-text">
@@ -79,16 +73,16 @@
 					</div>
 				</li>
 			</ul>
-		<% end %>
-		<% if current_user %>
+			<% end %>
+			<% if current_user %>
 			<%= render "comments/form" %>
-		<% else %>
+			<% else %>
 			<div class="comment-login">
 				You must be <%= link_to "logged in", login_path %> to make a comment.
 			</div>
-		<% end %>	
+			<% end %>	
+		</div>
 	</div>
-</div>
 
 
 

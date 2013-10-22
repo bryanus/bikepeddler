@@ -1,8 +1,10 @@
 <%= form_for @comment do |f|  %>
   <%= render "shared/error_messages", :target => @comment %>
   
- 	<%= f.text_area :comment, :rows => '5', :class => 'input-xxlarge', :placeholder => 'Add a comment' %><br />
+ 	<%= f.text_area :comment, :rows => '3', :class => 'form-control', :placeholder => 'Add a comment' %>
  	<%= f.hidden_field :post_id, value: @post.id %> 
- 	<%= f.submit 'Submit', :class => 'btn btn-primary'%> 
+ 	<div class="submit-group">
+ 		<%= f.submit 'Submit', :class => 'btn btn-primary'%> 
+ 	</div>	
 <% end %>
 

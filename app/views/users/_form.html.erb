@@ -1,22 +1,25 @@
 <div id="reg-form">
 	<%= form_for @user do |f| %>
 	<%= render "shared/error_messages", :target => @user %>
-	<%= f.text_field :username, :class => 'form-control', :placeholder => 'username', :required => true %>
+	<div class="form-label" style="display: inline; padding-right: 5px;">Username</div><small>(Your username will be used as your display handle on ads, comments, etc. and can not be changed.)</small>
+	<%= f.text_field :username, :class => 'form-control form-control-medium', :required => true %>
 	
-	<small>(Your username will be used as your display handle on ads, comments, etc. Your username can not be changed.)</small>
-	<br />
-	<%= f.text_field :fname, :class => 'form-control', :placeholder => 'first name', :required => true %>
+	
+	<div class="form-label">First Name</div>
+	<%= f.text_field :fname, :class => 'form-control form-control-medium', :required => true %>
+ 	<div class="form-label">Last Name</div>
+ 	<%= f.text_field :lname, :class => 'form-control form-control-medium', :required => true %>
+ 	<div class="form-label">Email Address</div>
+ 	<%= f.text_field :email, :class => 'form-control form-control-medium', :required => true %>
+ 	<div class="form-label">Zip Code</div>
+ 	<%= f.number_field :zip, :class => 'form-control form-control-small', :in => 00100..99999, :required => true %>
+ <div class="form-label">Password</div>
+ 	<%= f.password_field :password, :class => 'form-control form-control-medium', :required => true %>
+ 	<div class="form-label">Password Confirmation</div>
+ 	<%= f.password_field :password_confirmation, :class => 'form-control form-control-medium', :required => true %>
  	
- 	<%= f.text_field :lname, :class => 'form-control', :placeholder => 'last name', :required => true %>
- 	
- 	<%= f.text_field :email, :class => 'form-control', :placeholder => 'email address', :required => true %>
- 	
- 	<%= f.number_field :zip, :class => 'form-control', :in => 00100..99999, :placeholder => 'zip code', :required => true %>
- 
- 	<%= f.password_field :password, :class => 'form-control', :placeholder => 'password', :required => true %>
- 	
- 	<%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'password confirmation', :required => true %>
- 	
- 	<%= f.submit 'Create Account', :class => 'btn btn-primary' %>
+ 	<div class="submit-group">
+ 		<%= f.submit 'Create Account', :class => 'btn btn-primary' %> <%= link_to "Cancel", root_url, class: "btn btn-default" %>
+ 	</div>	
 <% end %>
 </div>

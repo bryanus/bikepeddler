@@ -1,23 +1,25 @@
 $(document).ready(function(){
+	$('.progress').hide();
+	
 	$('#imageupload').fileupload({
 		dataType: "script",
-		start: function() {
-			$('#view-listing').hide();
-      $('#progress').show();
-		},
+		// start: function() {
+  //     $('.progress').hide();
+		// },
 		progress: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 90, 10);
-        $('#progress .bar').css(
+        $('.progress').show( "slow" );
+        $('.progress-bar-success').css(
             'width',
             progress + '%'
         );
     },
     done: function(e, data){
-    	$('#progress').hide();
-    	$('#progress .bar').css(
+    	$('.progress').hide( "slow" );
+    	$('.progress-bar-success').css(
             'width', 0
         );
-    	$('#view-listing').show();
+
     }
 	});
 
