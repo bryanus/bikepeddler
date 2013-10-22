@@ -30,7 +30,7 @@
 		</button>
 		<ul class="dropdown-menu">
 			<% if current_user %>
-				<li role="menu"><%= mail_to @user.email, 'Contact Seller' %></li>
+				<li><%= mail_to @user.email, 'Contact Seller' %></li>
 				<li><%= link_to 'View Other Listings', user_path(@user) %></li>		
 			<% else %>
 				<li><%= link_to 'Contact Seller', login_path %></li>
