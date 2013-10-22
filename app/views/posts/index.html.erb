@@ -2,7 +2,6 @@
 
 <div class="listing-browser">
 	<h2>View </h2>
-	
 		<form action="/posts" method="GET" id="sortfilter">
 			<!-- somehow passing in @category instance variable, and because the object is :category, rails figures this out and it shows the selected value -->
 			<%= collection_select :category, :id, @categories, :id, :name, {:include_blank => 'All'} %>
@@ -10,8 +9,12 @@
 			<%= select_tag :adtype, options_for_select(@adtypes, params[:adtype]) %>
 			<input type="submit" value="Browse" class="btn btn-default">
 		</form>
-	
 </div>
+
 <div id="posts">
 	<%= render "posts" %>
+</div>
+
+<div class="center">
+	<%= will_paginate @posts, renderer: BootstrapPagination::Rails, bootstrap: 3, :class => 'pagination-sm' %>
 </div>
