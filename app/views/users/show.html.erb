@@ -1,20 +1,26 @@
-<% if correct_user(@user) %> <!-- if logged in and user id matches logged in id. What is a better way to do this? -->
+<div class="col-md-8">
+	<% if correct_user(@user) %> <!-- if logged in and user id matches logged in id. What is a better way to do this? -->
 
-	<div class="user-profile">
-		<h3>Your Profile</h3>
-		<div class="gravatar">
-			<%= image_tag @user.gravatar_url, :default => "default_gravatar_64x64.gif", :class => 'gravatar' %>
+		<div class="user-profile">
+			<h3>Your Profile</h3>
+			<div class="gravatar">
+				<%= image_tag @user.gravatar_url, :default => "default_gravatar_64x64.gif", :class => 'gravatar' %>
+			</div>
 		</div>
-	</div>
-	<div class="user-info">
-		<strong><%= @user.username %></strong><br />
-		<%= @user.fname %> <%= @user.lname %><br />
-		<%= @user.email %><br />
-		<%= @user.zip %><br />
-		<%= link_to "Edit Profile", edit_user_path(current_user), :class => "btn btn-default btn-xs" %>
-	</div>	
-<% end %>
+		<div class="user-info">
+			<strong><%= @user.username %></strong><br />
+			<%= @user.fname %> <%= @user.lname %><br />
+			<%= @user.email %><br />
+			<%= @user.zip %><br />
+			<%= link_to "Edit Profile", edit_user_path(current_user), :class => "btn btn-default btn-xs" %>
+		</div>	
+	<% end %>
 
 <%= render "listings" %>
 
-<!-- comment -->
+</div>
+
+<div class="col-md-4">
+	<img src="http://pagead2.googlesyndication.com/simgad/6235916075119015141" border="0" width="300" height="600" alt="" class="img_ad">
+</div>
+

@@ -14,25 +14,25 @@ class PostsController < ApplicationController
 		puts params
 
 		if params[:tag]
-			@posts = Post.tagged_with(params[:tag]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+			@posts = Post.tagged_with(params[:tag]).order('created_at DESC').paginate(:per_page => 20, :page => params[:page])
 		elsif params[:search]
-			@posts = Post.with_query('^' + params[:search]).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+			@posts = Post.with_query('^' + params[:search]).order('created_at DESC').paginate(:per_page => 20, :page => params[:page])
 
 		elsif params[:category]
 
 			if params[:category][:id] !=""
 
-				@posts = Post.where("category_id = ? AND adtype = ?", params[:category][:id].to_i, params[:adtype].to_i).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+				@posts = Post.where("category_id = ? AND adtype = ?", params[:category][:id].to_i, params[:adtype].to_i).order('created_at DESC').paginate(:per_page => 20, :page => params[:page])
 				@category = Category.find(params[:category][:id])
 			else params[:category][:id] ==""
 
-				@posts = Post.where("adtype = ?", params[:adtype].to_i).order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+				@posts = Post.where("adtype = ?", params[:adtype].to_i).order('created_at DESC').paginate(:per_page => 20, :page => params[:page])
 
 			end
 
 		else
 
-			@posts = Post.order('created_at DESC').paginate(:per_page => 16, :page => params[:page])
+			@posts = Post.order('created_at DESC').paginate(:per_page => 20, :page => params[:page])
 		end
 
 		

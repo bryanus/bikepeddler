@@ -40,8 +40,7 @@ footer .container .col-md-3:nth-last-child(2) {
 footer .copyright {
 	color: #555;
 	font-size: 10px;
-	padding-top: 25px;
-	float: left;
+	padding-top: 45px;
 	clear: both;
 }	
 
@@ -73,8 +72,6 @@ footer .title {
 	width: 225px;
 }
 
-
-
 footer .social img {
 	border: none;
 }
@@ -102,7 +99,6 @@ footer .social img {
 
 footer .contact input.input_type {
 	height: 22px;
-	//width: 139px;
 	line-height: 20px;
 	padding: 0;
 	float: left;
@@ -127,9 +123,6 @@ footer .contact input.button {
 	position: relative;
 }
 
-.footer-image img {
-	max-width: 200px;
-}
 
 .footer-image:hover .thumbnail_text{
 	background-color: red;
@@ -143,7 +136,7 @@ footer .contact input.button {
 footer .footer-image .thumbnail_text {
 	position: absolute;
 	top: 0;
-	width: 200px;
+	width: 225px;
 	color: #ccc;
 	font: normal 13px Helvetica, Sans-Serif;
 	background: rgba(0, 0, 0, 0.9);
@@ -152,7 +145,7 @@ footer .footer-image .thumbnail_text {
 }
 
 footer .thumbnail_text_price {
-	right: -5px;
+	right: 0px;
 }
 
 input::-webkit-outer-spin-button,

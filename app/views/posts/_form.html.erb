@@ -1,36 +1,39 @@
 <div class="form-group">
-	<div class="listing-browser">
-	<%= form_for @post do |f|  %>
-  <%= render "shared/error_messages", :target => @post %>
-  <!-- listing_types is a class model with the ad types in a nested array -->
-  <%= f.select :adtype, options_for_select(Post.listing_types, @post.adtype), :include_blank => 'Select Ad Type', :required => true %>&nbsp;
- 	
- 	<%= f.collection_select :category_id, @categories, :id, :name, :include_blank => 'Select Category' %>
- 	<div class="form-label">Title</div>
- 	<%= f.text_field :title, :class => 'form-control', :required => true %>
- 	<div id="price-field">
-	 	<div class="form-label">Price (e.g. 400.00)</div>
-	 	<%= f.number_field :price, :class => 'form-control form-control-small',  :in => 0..999999.99 %> <%= f.select :currency, options_for_select(Post.currency_types, @post.currency) %>
+	<div id="listing-browser">
+		<%= form_for @post do |f|  %>
+		  <%= render "shared/error_messages", :target => @post %>
+		  <!-- listing_types is a class model with the ad types in a nested array -->
+		  <%= f.select :adtype, options_for_select(Post.listing_types, @post.adtype), :include_blank => 'Select Ad Type', :required => true %>&nbsp;
+		 	
+		 	<%= f.collection_select :category_id, @categories, :id, :name, :include_blank => 'Select Category' %>
+		 	
+		 	<div class="form-label">Title</div>
+		 		<%= f.text_field :title, :class => 'form-control', :required => true %>
+
+		 	<div id="price-field">
+			 	<div class="form-label">Price (e.g. 400.00)</div>
+			 		<%= f.number_field :price, :class => 'form-control form-control-small',  :in => 0..999999.99 %> <%= f.select :currency, options_for_select(Post.currency_types, @post.currency) %>
+			</div>
+
+			<div class="form-label">Location Zip Code (5-digits only)</div>
+		 		<%= f.number_field :zip, :class => 'form-control form-control-small', :in => 00100..99999, :required => true %>
+		 	
+		 	<div class="form-label">Quantity</div>
+		 		<%= f.number_field :qty, :class => 'form-control form-control-small', :in => 1..99, :value => 1, :required => true %>
+
+		 	<div class="form-label">Size (if applicable)</div>
+		 		<%= f.text_field :size, :class => 'form-control form-control-small' %>
+		 		
+			<div class="form-label">Description</div>
+			 	<%= f.text_area :description, :rows => '10', :class => 'form-control', :required => true %>
+			
+			<div class="form-label">Tags (separated by commas)</div>
+			 	<%= f.text_field :tag_list, :class => 'form-control' %>
+
+		 	<div class="submit-group">
+		 		<%= f.submit 'Continue', :class => 'btn btn-primary'%> <%= link_to "Cancel", root_url, class: "btn btn-default" %>
+		 	</div>
+		<% end %>
 	</div>
-	<div class="form-label">Location Zip Code (5-digits only)</div>
- 		<%= f.number_field :zip, :class => 'form-control form-control-small', :in => 00100..99999, :required => true %>
- 	
- 	<div class="form-label">Quantity</div>
- 		<%= f.number_field :qty, :class => 'form-control form-control-small', :in => 1..99, :value => 1, :required => true %>
-
- 	<div class="form-label">Size (if applicable)</div>
- 		<%= f.text_field :size, :class => 'form-control form-control-small' %>
- 		
-	<div class="form-label">Description</div>
-	 	<%= f.text_area :description, :rows => '10', :class => 'form-control', :required => true %>
-	
-	<div class="form-label">Tags (separated by commas)</div>
-	 	<%= f.text_field :tag_list, :class => 'form-control' %>
-
- 	<div class="submit-group">
- 		<%= f.submit 'Continue', :class => 'btn btn-primary'%> <%= link_to "Cancel", root_url, class: "btn btn-default" %>
- 	</div>
-<% end %>
-</div>
 </div>
 

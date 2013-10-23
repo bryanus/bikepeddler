@@ -1,34 +1,42 @@
-<div id="user-edit">
-  <%= form_for @user do |f| %>
-  	<%= render "shared/error_messages", :target => @user %>
+<div class="col-md-8">
+  <div id="user-edit">
+    <%= form_for @user do |f| %>
+    <%= render "shared/error_messages", :target => @user %>
 
     <h3>Edit your profile</h3>
-      <%= link_to "Delete Account", user_path(@user), class: "btn btn-xs btn-danger", method: :delete, data: { confirm: "Are you sure? This will also remove all listings from your account and can not be undone." } %>
+    <%= link_to "Delete Account", user_path(@user), class: "btn btn-xs btn-danger", method: :delete, data: { confirm: "Are you sure? This will also remove all listings from your account and can not be undone." } %>
 
     <div class="username">Username: <%= @user.username %>
       <small>(Note: Your username can not be changed.)</small>
     </div>
     
-    <%= f.label :first_name %>
-  	<%= f.text_field :fname, :class => 'form-control', :required => true %>
+    <div class="form-label">First Name</div>
+    <%= f.text_field :fname, :class => 'form-control form-control-medium', :required => true %>
 
-  	<%= f.label :last_name %>
-   	<%= f.text_field :lname, :class => 'form-control', :required => true %>
+    <div class="form-label">Last Name</div>
+    <%= f.text_field :lname, :class => 'form-control form-control-medium', :required => true %>
 
-    <%= f.label :email_address %>
-  	<%= f.text_field :email, :class => 'form-control', :required => true %>
+    <div class="form-label">Email Address</div>
+    <%= f.text_field :email, :class => 'form-control form-control-medium', :required => true %>
 
-  	<%= f.label :zip_code %>
-  	<%= f.number_field :zip, :class => 'form-control', :in => 00100..99999, :required => true %>
+    <div class="form-label">Zip Code</div>
+    <%= f.number_field :zip, :class => 'form-control form-control-small', :in => 00100..99999, :required => true %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, :class => 'form-control' %>
+    <div class="form-label">Password</div>
+    <%= f.password_field :password, :class => 'form-control form-control-medium' %>
 
-    <%= f.label :password_confirmation, "Confirm Password" %>
-    <%= f.password_field :password_confirmation, :class => 'form-control' %><br />
+    <div class="form-label">Password Confirmation</div>
+    <%= f.password_field :password_confirmation, :class => 'form-control form-control-medium' %><br />
 
     <div class="submit-group">
       <%= f.submit "Save changes", class: "btn btn-primary" %><%= f.button "Cancel", class: "btn btn-default" %>
     </div>
-  <% end %>
-</div>  
+    <% end %>
+  </div> 
+
+</div>
+
+<div class="col-md-4">
+  <img src="http://pagead2.googlesyndication.com/simgad/6235916075119015141" border="0" width="300" height="600" alt="" class="img_ad">
+</div>
+

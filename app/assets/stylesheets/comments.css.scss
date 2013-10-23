@@ -2,14 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .comments {
-// 	padding-bottom: 30px;
-// }
-
-// .comments textarea {
-// 	width: 530px;
-// }
-
 .comments li {
 	list-style-type: none;
 	border-top: 1px solid #cdcdcd;
@@ -19,7 +11,7 @@
 
 .comments ul {
 	margin-left: 0px;
-	//-webkit-padding-start: 0px;
+	padding-left: 0px;
 	clear: both;
 }
 

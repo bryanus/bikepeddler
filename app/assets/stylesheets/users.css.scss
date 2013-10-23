@@ -28,7 +28,7 @@
 .username {
 	font-weight: 900;
 	display: block;
-	padding-top: 5px;
+	padding-top: 15px;
 	padding-bottom: 10px;
 }
 
@@ -44,20 +44,6 @@
 	margin-top: -9px;
 	margin-left: 10px;
 }
-
-#user-edit .form-control {
-	width: 20%;
-}
-
-#user-edit label {
-	font-weight: bold;
-	margin-top: 15px;
-}
-
-// #reg-form .form-control {
-// 	width: 30%;
-// 	margin-bottom: 15px;
-// }
 
 .vertical-link-group {
 	padding-top: 10px;
@@ -97,5 +83,5 @@
 
 .listings ul {
 	list-style: none;
-	//-webkit-padding-start: 10px;
+	padding-left: 0px;
 }
