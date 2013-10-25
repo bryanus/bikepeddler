@@ -29,7 +29,7 @@
   #posts .thumbnail_text_price {
     font-size: 12px;
   }
-  #post-index li:nth-child(5n){  
+  #post-index li:nth-child(2n){  
   margin-right: 0px;
   }
   #post-index .img-thumbnail img {
@@ -53,7 +53,7 @@
 }
 
 
-//below 576 (@575):
+//between 480 and  576 (@575):
 @media (min-width:480px) and (max-width:585px){
   .container {
     padding-left: 7px;
@@ -76,6 +76,9 @@
   #listing-browser select {
     display: block;
     margin-bottom: 5px;
+  }
+  #post-index li:nth-child(2n){  
+  margin-right: 0px;
   }  
   #posts .thumbnail_text {
     font-size: 12px;
