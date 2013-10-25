@@ -31,8 +31,8 @@ class PostsController < ApplicationController
 			end
 
 		else
-
-			@posts = Post.order('created_at DESC').paginate(:per_page => 20, :page => params[:page])
+			# only show For Sale (status=0) on initial page load if no params
+			@posts = Post.where("status = 0").order('created_at DESC').paginate(:per_page => 20, :page => params[:page])
 		end
 
 		
