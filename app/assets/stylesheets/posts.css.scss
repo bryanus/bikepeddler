@@ -13,17 +13,18 @@
 	font-weight: 900;
 }
 
-
 footer {
-	 clear: both;
-	 color: #666;
-	 position: relative;
-	 height: auto;
-	 width: 100%;
-	 z-index: 10;
-	 padding-bottom: 30px;
-	 padding-top: 30px;
-	 background-color: #2a2a2a;
+	background: url(header_bg_g.png) repeat-x;
+	background-size: 100% 100%;
+	clear: both;
+	color: #666;
+	position: relative;
+	height: auto;
+	width: auto;
+	z-index: 10;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	margin: 0 auto;
 }
 
 footer .container .col-md-3 {
@@ -31,9 +32,10 @@ footer .container .col-md-3 {
 	margin-left: 0px;
   width: 225px;
   padding: 0px;
+  float: left;
 }
 
-footer .container .col-md-3:nth-last-child(2) {
+footer .container .col-md-3:nth-child(4n) {
 	margin-right: 0px;
 }
 
@@ -69,7 +71,7 @@ footer .title {
 	border-bottom: 1px solid #666;
 	margin-bottom: 10px;
 	padding-bottom: 5px;
-	width: 225px;
+	width: auto;
 }
 
 footer .social img {

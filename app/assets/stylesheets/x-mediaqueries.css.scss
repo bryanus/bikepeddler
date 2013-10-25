@@ -1,0 +1,177 @@
+//@media queries
+
+@media (max-width:479px){
+  .container {
+    padding-left: 10px;
+  }  
+  .content {
+    padding-top: 100px;
+  }
+  .main-search {
+    float: left;
+  }
+  .main-search .form-control-medium {
+  width: 245px;
+  }
+  .login-area {
+    float: left;
+  } 
+  .login-links a:first-child {
+  padding-left: 0px;
+  }
+  #listing-browser select {
+    display: block;
+    margin-bottom: 5px;
+  }
+  #posts .thumbnail_text {
+    font-size: 12px;
+  }
+  #posts .thumbnail_text_price {
+    font-size: 12px;
+  }
+  #post-index li:nth-child(5n){  
+  margin-right: 0px;
+  }
+  #post-index .img-thumbnail img {
+    width: 185px;
+    font-size: 12px;
+  }
+  #post-index .img-thumbnail .thumbnail_text {
+    width: 185px;
+  }
+  #post-index li{
+    width: 185px;
+    height: 185px;
+  }
+  footer .container .col-md-3 {
+    margin-right: 10px;
+  }
+  footer .container .col-md-3:nth-child(2n) {
+    margin-right: 0px;
+  }
+    
+}
+
+
+//below 576 (@575):
+@media (min-width:480px) and (max-width:585px){
+  .container {
+    padding-left: 7px;
+  }  
+  .content {
+    padding-top: 100px;
+  }
+  .main-search {
+    float: left;
+  }
+  .main-search .form-control-medium {
+  width: 245px;
+  }
+  .login-area {
+    float: left;
+  }
+  .login-links a:first-child {
+    padding-left: 0px;
+  }
+  #listing-browser select {
+    display: block;
+    margin-bottom: 5px;
+  }  
+  #posts .thumbnail_text {
+    font-size: 12px;
+  }
+  #posts .thumbnail_text_price {
+    font-size: 12px;
+  }
+  footer .container .col-md-3:nth-child(2n) {
+    margin-right: 0px;
+  } 
+}
+
+
+//between 576 and 768px (@768):
+@media (min-width:586px) and (max-width:767px){
+  .container {
+    padding-left: 10px;
+  }
+
+  h4 {
+    font-size: 15px;
+  }
+  .navbar-brand img {
+  width: 90%;
+  }
+  .main-search .form-control-medium {
+  width: 200px;
+  }
+  #post-index li:nth-child(3n){  
+    margin-right: 0px;
+  }
+  #post-index .img-thumbnail img {
+    width: 185px;
+    font-size: 12px;
+  }
+  #post-index .img-thumbnail .thumbnail_text {
+    width: 185px;
+  }
+  #posts .thumbnail_text {
+    font-size: 12px;
+  }
+  #posts .thumbnail_text_price {
+    font-size: 12px;
+  }
+  #post-index li{
+    width: 185px;
+    height: 185px;
+  }
+  footer .container .col-md-3 {
+    margin-right: 130px;
+  } 
+  footer .container .col-md-3:nth-child(2n) {
+    margin-right: 0px;
+  }    
+}
+
+//between 768px and 970px (@768):
+@media (min-width:768px) and (max-width:991px){
+  
+
+  #post-index li:nth-child(3n){  
+    margin-right: 0px;
+  }
+  
+  #post-index li{
+    margin-right: 37px;
+    margin-bottom: 37px;
+  }
+   
+}
+
+//between 970px and 1200px (@992):
+@media (min-width:992px) and (max-width:1199px){
+  #post-index li:nth-child(4n){  
+    margin-right: 0px;
+  }
+
+  #post-index li{
+    margin-right: 23px;
+    margin-bottom: 23px;
+  }
+  footer .container .col-md-3 {
+    margin-right: 23px;
+  }  
+}
+
+//larger than 1200px:
+@media (min-width:1200px){
+  // #post-index li{
+  //   margin-right: 11px;
+  // }
+  #post-index li:nth-child(5n){  
+    margin-right: 0px;
+  }
+  footer .container .col-md-3 {
+    margin-right: 89.5px;
+  }
+
+}
