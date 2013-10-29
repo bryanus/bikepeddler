@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bikepeddler</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+  <link href="/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/bootstrap.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/bootstrap_and_overrides.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/comments.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/images.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/password_resets.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/posts.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/sessions.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/users.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/x-mediaqueries.css?body=1" media="all" rel="stylesheet" type="text/css" />
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery-ui.js?body=1" type="text/javascript"></script>
+<script src="/assets/shadowbox.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery-fileupload/jquery.fileupload.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery-fileupload/basic.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap.min.js?body=1" type="text/javascript"></script>
+<script src="/assets/comments.js?body=1" type="text/javascript"></script>
+<script src="/assets/password_resets.js?body=1" type="text/javascript"></script>
+<script src="/assets/sessions.js?body=1" type="text/javascript"></script>
+<script src="/assets/upload.js?body=1" type="text/javascript"></script>
+<script src="/assets/users.js?body=1" type="text/javascript"></script>
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="NKxaDH/LdBdQVs3zrm5ujekbi8j1qFXivV8MtNSoWRU=" name="csrf-token" />
+  <script type="text/javascript">
+  Shadowbox.init({
+  	overlayOpacity: .90,
+  	continuous: true
+  });
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+  <body>
+
+  	<div class="container">
+  		<div class="navbar navbar-fixed-top">
+
+  			<div class="container">
+  				<div class="navbar-inner">
+            <div class="navbar-brand">
+             <a href="/"><img alt="Heavy Peddler" src="/assets/hplogo.png" /></a>
+             <h4>Buy and Sell Vintage Bikes and Parts!</h4>
+            </div>	
+            <div class="main-search">
+                <form accept-charset="UTF-8" action="/posts" class="form-search" data-remote="true" id="posts_search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                <input class="form-control form-control-medium" id="search" name="search" type="text" />
+                <input class="btn btn-default" type="submit" value="Search" />
+</form>            		    
+              <div class="login-area">	
+                  <div class="login-links">
+                  <a href="/login">Post Ad</a>
+                  <a href="/login">Login</a>
+                  <a href="/signup">Register</a>
+                  </div>	
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="content">
+        
+
+<div id="listing-browser">
+	<h2>View </h2>
+		<form action="/posts" method="GET" id="sortfilter">
+			<!-- somehow passing in @category instance variable, and because the object is :category, rails figures this out and it shows the selected value -->
+			<select id="category_id" name="category[id]"><option value="">All</option>
+<option value="1">Bikes: Full Suspension</option>
+<option value="2">Bikes: Hardtail</option>
+<option value="3">Bikes: Vintage</option>
+<option value="4">Bikes: BMX</option>
+<option value="5">Bikes: Framesets</option>
+<option value="6">Bikes: Road</option>
+<option value="7">Components: Brakes</option>
+<option value="8">Components: Chain and Cassette</option>
+<option value="9">Components: Crankset</option>
+<option value="10">Components: Derailleurs</option>
+<option value="11">Components: Front Forks</option>
+<option value="12">Components: Rear Shocks</option>
+<option value="13">Components: Handlebars</option>
+<option value="14">Components: Headsets</option>
+<option value="15">Components: Pedals</option>
+<option value="16">Components: Saddles</option>
+<option value="17">Components: Seatposts</option>
+<option value="18">Components: Shifters</option>
+<option value="19">Components: Stems</option>
+<option value="20">Components: Vintage Parts</option>
+<option value="21">Components: Other Components</option>
+<option value="22">Wheels: Wheelsets</option>
+<option value="23">Wheels: Hubs</option>
+<option value="24">Wheels: Tires</option>
+<option value="25">Accessories: Clothes and Body Armor</option>
+<option value="26">Accessories: Racks</option>
+<option value="27">Accessories: Helmets</option>
+<option value="28">Accessories: Lights</option>
+<option value="29">Accessories: Shoes</option>
+<option value="30">Accessories: Trainers</option>
+<option value="31">Accessories: Other</option></select>
+			<!-- I pass in params[:adtype], and use that to show the selected value -->
+			<select id="adtype" name="adtype"><option value="0">For Sale</option>
+<option value="1">Wanted</option>
+<option value="2" selected="selected">Trade</option></select>
+			<input type="submit" value="Browse" class="btn btn-primary">
+		</form>
+</div>
+
+<div id="posts">
+	
+<ul class="thumbnails" id="post-index">
+  	<li>
+  		<a href="/posts/95">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/09-thumbnail.jpg" />
+      			<span class="thumbnail_text">Odio voluptatibus voluptas ...</span>
+      			<span class="thumbnail_text_price">USD $1,994.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/90">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/09-thumbnail.jpg" />
+      			<span class="thumbnail_text">Quaerat et voluptas enim ve...</span>
+      			<span class="thumbnail_text_price">USD $1,550.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/88">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/01-thumbnail.jpg" />
+      			<span class="thumbnail_text">Iste atque et doloremque et...</span>
+      			<span class="thumbnail_text_price">USD $1,564.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/87">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/11-thumbnail.jpg" />
+      			<span class="thumbnail_text">Quia accusantium minima maxime</span>
+      			<span class="thumbnail_text_price">USD $1,463.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/85">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/04-thumbnail.jpg" />
+      			<span class="thumbnail_text">Dolores quo fugit sint even...</span>
+      			<span class="thumbnail_text_price">USD $387.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/78">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/12-thumbnail.jpg" />
+      			<span class="thumbnail_text">Aut totam laboriosam ea hic...</span>
+      			<span class="thumbnail_text_price">USD $1,126.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/76">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/03-thumbnail.jpg" />
+      			<span class="thumbnail_text">Adipisci eligendi rerum nih...</span>
+      			<span class="thumbnail_text_price">USD $565.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/69">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/09-thumbnail.jpg" />
+      			<span class="thumbnail_text">Ducimus officiis iste ut qu...</span>
+      			<span class="thumbnail_text_price">USD $696.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/62">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/09-thumbnail.jpg" />
+      			<span class="thumbnail_text">Et laboriosam vel cumque po...</span>
+      			<span class="thumbnail_text_price">USD $1,121.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/56">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/08-thumbnail.jpg" />
+      			<span class="thumbnail_text">Quam harum iste</span>
+      			<span class="thumbnail_text_price">USD $934.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/53">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/08-thumbnail.jpg" />
+      			<span class="thumbnail_text">Quisquam praesentium eum pl...</span>
+      			<span class="thumbnail_text_price">USD $1,070.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/49">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/01-thumbnail.jpg" />
+      			<span class="thumbnail_text">Et voluptatibus odit soluta...</span>
+      			<span class="thumbnail_text_price">USD $449.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/45">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/09-thumbnail.jpg" />
+      			<span class="thumbnail_text">Architecto omnis et veritat...</span>
+      			<span class="thumbnail_text_price">USD $1,855.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/41">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/03-thumbnail.jpg" />
+      			<span class="thumbnail_text">Non id ut amet vel earum co...</span>
+      			<span class="thumbnail_text_price">USD $372.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/36">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/04-thumbnail.jpg" />
+      			<span class="thumbnail_text">Commodi sit deleniti illo d...</span>
+      			<span class="thumbnail_text_price">USD $1,858.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/34">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/12-thumbnail.jpg" />
+      			<span class="thumbnail_text">Unde id sit voluptatem natus</span>
+      			<span class="thumbnail_text_price">USD $317.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/32">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/06-thumbnail.jpg" />
+      			<span class="thumbnail_text">Alias sit molestiae perfere...</span>
+      			<span class="thumbnail_text_price">USD $1,973.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/28">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/07-thumbnail.jpg" />
+      			<span class="thumbnail_text">Est aliquid eos totam</span>
+      			<span class="thumbnail_text_price">USD $856.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/17">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/06-thumbnail.jpg" />
+      			<span class="thumbnail_text">Incidunt fugiat maxime</span>
+      			<span class="thumbnail_text_price">USD $552.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+  	<li>
+  		<a href="/posts/11">
+    		<div class="img-thumbnail">
+    			<img alt="missing image" src="http://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/random_thumbnails/08-thumbnail.jpg" />
+      			<span class="thumbnail_text">Quo nulla quaerat maiores d...</span>
+      			<span class="thumbnail_text_price">USD $1,790.00</span>
+</a>    			<!-- <p> -->
+    		</div>
+  	</li>
+</ul>
+
+<div class="center">
+  <ul class="pagination pagination-sm"><li class="prev disabled"><span>&#8592; Previous</span></li> <li class="active"><span>1</span></li> <li><a rel="next" href="/?adtype=2&amp;category%5Bid%5D=&amp;page=2">2</a></li> <li class="next"><a rel="next" href="/?adtype=2&amp;category%5Bid%5D=&amp;page=2">Next &#8594;</a></li></ul>
+</div>
+
+
+
+</div>
+      </div>
+      
+    </div>
+
+    <footer>
+	
+
+	<SCRIPT LANGUAGE="Javascript">
+	function clearText(field){
+		if (field.defaultValue == field.value) field.value = '';
+		else if (field.value == '') field.value = field.defaultValue;
+		}
+	</SCRIPT>
+
+	<div class="container">
+		<div class="col-md-3">
+			<div class="title">Just Listed</div>
+			<div class="footer-image">
+				<a href="/posts/106">
+				<img alt="Thumb_dsc_0762-w800-h600" src="https://heavypeddler-development.s3.amazonaws.com/uploads/image/image_file/41/thumb_DSC_0762-w800-h600.jpg" />
+				<div class="thumbnail_text">785k875k7</div>
+				<div class="thumbnail_text_price">USD $595.00</div>
+</a>			</div>	
+		</div>
+
+		<div class="col-md-3">
+			<div class="title">In The News</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="title">Resources</div>
+			<div class="resources">
+				<ul>
+					<li><a href="#">Forums</a></li>
+					<li><a href="#">Support</a></li>
+					<li><a href="#">Partners</a></li>
+					<li><a href="#">Advertise</a></li>
+					<li><a href="#">Media</a></li>
+				</ul>
+
+				<ul>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="http://bryanus.tumblr.com" target="_blank">Blog</a></li>
+					<li><a href="#">Terms of Use</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="title">Connect With Us</div>
+			<div class="contact">
+				<p>Join our newsletter for special offers, helpful tips, and service updates!</p>
+
+				<!-- Begin MailChimp Signup Form -->
+				<script type="text/javascript">
+						// delete this script tag and use a "div.mce_inline_error{ XXX !important}" selector
+						// or fill this in and it will be inlined when errors are generated
+						var mc_custom_error_style = '';
+						</script>
+
+						<form action="http://clickvdvdbooq.us1.list-manage2.com/subscribe/post?u=31e86497vfvf4fb67474105bb0393&amp;id=cb74vfvf71a4a9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+							<input type="text" value="Enter email address" onFocus="clearText(this)" onBlur="clearText(this)" name="EMAIL" class="input_type" id="mce-EMAIL">
+							<input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button">
+							<div id="mce-responses">
+								<div class="response" id="mce-error-response" style="display:none"></div>
+								<div class="response" id="mce-success-response" style="display:none"></div>
+							</div>
+						</form>
+					</div>
+					<div class="social">
+
+						<a href="http://www.facebook.com/heavypeddler" target="_new"><img alt="facebook" src="/assets/facebook.jpg" /></a>
+						<a href="http://twitter.com/#!/heavypeddler" target="_new"><img alt="twitter" src="/assets/twitter.jpg" /></a>
+						<g:plusone size="small" annotation="none"></g:plusone>
+					</div>
+				</div>
+			
+
+			<div class="center">
+				<div class="copyright">© 2013 HeavyPeddler Industries, Inc. | Buy and Sell your bikes and bike parts! | All Rights Reserved. <a href="privacy.html" target="_blank">Privacy Policy</a>. <!--<a href="terms.html" target="_blank">Site Map</a>--> </div>
+			</div>
+</div>
+
+</footer>
+
+  	
+
+  </body>
+</html>

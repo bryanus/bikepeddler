@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
 	before_filter :authorize, only: [:edit, :update]
 
+	# caches_page :index
+	
 	def index
 
 		@post = Post.new

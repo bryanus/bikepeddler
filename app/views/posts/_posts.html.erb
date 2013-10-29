@@ -2,15 +2,15 @@
 <ul class="thumbnails" id="post-index">
 	<% @posts.each do |post| %>
 	<% if post.status == 0 %>
-  	<li>
+  	<li class="col-md-1">
   		<%= link_to post_path(post) do %>
     		<div class="img-thumbnail">
     			<% if post.present? && post.has_image? %>
-      			<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s %>
+      			<%= image_tag post.images.order('created_at ASC').first.image_file_url(:thumb).to_s, :class => "img-responsive" %>
       			<span class="thumbnail_text"><%= truncate(post.title, :length => 30, :class => "thumbnail_text") %></span>
       			<span class="thumbnail_text_price"><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></span>
     			<% else %>
-    			<%= image_tag random_thumbnails, :alt => "missing image" %>
+    			<%= image_tag random_thumbnails, :alt => "missing image", :class => "img-responsive" %>
       			<span class="thumbnail_text"><%= truncate(post.title, :length => 30) %></span>
       			<span class="thumbnail_text_price"><%= number_to_currency( post.price, :unit => currency_type(post.currency)) %></span>
     		  <% end %> 
