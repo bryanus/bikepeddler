@@ -12,7 +12,7 @@
     margin-top: 2px;
   }
   .navbar-toggle:hover {
-    background-color: transparent !important;
+    background-color: #040404;
   }
   .navbar-brand {
     float: none;
@@ -51,6 +51,13 @@
     padding-right: 0px;
     max-width: 49%;
   }
+  .col-md-4 {
+    padding-left: 0px;
+  }
+  .col-md-8 {
+    padding-left: 0px;
+  }
+
   #post-index li {
     padding-left: 0px;
     margin-right: 2%;
@@ -136,6 +143,9 @@
   }
   #post-index li:nth-child(5n){  
     margin-right: 0;
+  }
+  .col-md-4 {
+    padding-left: 15px;
   }
 }
 
