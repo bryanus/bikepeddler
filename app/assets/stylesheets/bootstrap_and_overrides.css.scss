@@ -56,6 +56,19 @@ h4 {
   padding-top: 50px;
 }
 
+.navbar {
+  border: none;
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: none;
+}
+
+.navbar-toggle {
+  margin-top: 0px;
+  margin-right: 0px;
+}
 .navbar .navbar-brand {
 	padding: 0;
   margin-left: 0px;
@@ -89,6 +102,9 @@ h4 {
   margin-left: 0px;
 }
 
+.navbar-form .form-group {
+  margin-bottom: 10px;
+}
 #listing-browser h2 {
   display: inline;
 }

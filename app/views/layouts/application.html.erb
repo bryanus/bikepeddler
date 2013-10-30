@@ -21,12 +21,66 @@
 
   	<div class="container">
   		<div class="navbar navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-inner">
+          <!-- start #bs collapsed -->
+            <nav class="navbar navbar-default" role="navigation">
+              <!-- button toggle vioew for collapsed version -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><%= image_tag "hplogo.png", :alt => "Heavy Peddler" %></a>
+                <h4 class="hidden-xs">Buy and Sell Vintage Bikes and Parts!</h4>
+              </div>
+              <!-- The Stuff inside the collapsed menu dropdown -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <div class="main-search">
+                    <% if params[:action] == 'index' && params[:controller] == 'posts' %>
+                      <%= form_tag posts_path, :class => "form-search", :method => 'get', remote: true, :id => "posts_search" do %>
+                      <%= text_field_tag :search, params[:search], :class => "form-control form-control-medium" %>
+                      <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+                      <% end %>
+                    <% else %>
+                      <%= form_tag posts_path, :class => "form-search", :method => 'get', :id => "posts_search" do %>
+                      <%= text_field_tag :search, params[:search], :class => "form-control form-control-medium" %>
+                      <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+                      <% end %>
+                    <% end %>
+                    <div class="login-area">  
+                      <% if current_user %>
+                        <div class="user-status">
+                         Welcome <%= link_to current_user.fname, user_path(current_user) %>
+                        </div>
+                        <div class="login-links"> 
+                         <%= link_to "Post Ad", new_post_path %>
+                         <%= link_to "Log Out", logout_path(current_user) %>
+                        </div>
+                      <% else %>
+                        <div class="login-links">
+                        <%= link_to "Post Ad", login_path %>
+                        <%= link_to "Login", login_path %>
+                        <%= link_to "Register", signup_path %>
+                        </div>  
+                      <% end %>
+                    </div>
+                  </div>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </nav>
+          </div>
+        </div>
+<!-- end #bs collapsed -->
 
-  			<div class="container">
+  			<!-- <div class="container">
   				<div class="navbar-inner">
             <div class="navbar-brand">
              <a href="/"><%= image_tag "hplogo.png", :alt => "Heavy Peddler" %></a>
-             <h4>Buy and Sell Vintage Bikes and Parts!</h4>
+             <h4 class="hidden-xs">Buy and Sell Vintage Bikes and Parts!</h4>
             </div>	
             <div class="main-search">
               <% if params[:action] == 'index' && params[:controller] == 'posts' %>
@@ -60,7 +114,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     
       <div class="content">
