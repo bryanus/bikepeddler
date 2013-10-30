@@ -1,54 +1,106 @@
 @media (min-width: 320px) {
+  .navbar-brand {
+  margin-bottom: 10px;
+  }
+  .navbar-brand h4 {
+    display: none;
+  }
+  .login-area {
+    float: left;
+  }
   .content {
-  padding-top: 120px;
+  padding-top: 60px;
+  }
+  .main-search {
+    padding-top: 5px;
+    float: none;
+  }
+  .form-control-medium {
+    width: 70%;
   }
   .col-md-1 {
     padding-right: 0px;
+    max-width: 49%;
   }
   #post-index li {
     padding-left: 0px;
-    margin-right: 5px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+  #post-index li:nth-child(2n){  
+    margin-right: 0px;
   }
   .img-responsive {
-    max-width: 145px;
+    max-width: 100%;
   }
 }
 
 @media (min-width: 768px) {
-  .content {
-    padding-top: 50px;
+  .navbar-brand {
+  margin-bottom: 10px;
   }
+  .navbar-brand h4 {
+    display: block;
+  }
+  .login-area {
+    float: right;
+  }
+  .content {
+  padding-top: 60px;
+  }
+  .main-search {
+    padding-top: 5px;
+    float: right;
+  }
+  .form-control-medium {
+    width: 300px;
+  }
+
+
   .col-md-1 {
-    width: 225px;
-    height: 225px;
+    max-width: 31%;
   }
   #post-index li {
     padding-left: 0px;
-    margin-right: 11px;
+    margin-right: 3%;
+    margin-bottom: 3%;
   }
   .img-responsive {
-    max-width: 225px;
+    max-width: 100%;
   }
   .img-thumbnail {
     max-width: 225px;  
   }
   #post-index li:nth-child(2n){  
-    margin-right: 11px;
+    margin-right: 3%;
+  }
+  #post-index li:nth-child(3n){  
+    margin-right: 0px;
   }
   
 }
 
-@media (min-width: 1192px) {
+@media (min-width: 992px) {
+  .col-md-1 {
+    width: 18%;
+  }
   #post-index li {
-    margin-bottom: 6px;
-    margin-right: 6px;
+    margin-bottom: 2%;
+    margin-right: 2%;
   }
   #post-index li:nth-child(2n){  
-    margin-right: 6px;
+    margin-right: 2%;
+  }
+  #post-index li:nth-child(3n){  
+    margin-right: 2%;
   }
   #post-index li:nth-child(5n){  
-    margin-right: 0px;
+    margin-right: 0;
   }
+}
+
+@media (min-width: 1192px) {
+  
   
 }
 // //@media queries
