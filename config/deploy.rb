@@ -12,7 +12,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "https://github.com/bryanus/bikepeddler.git"
-set :branch, "master"
+set :branch, "cap2"
 
 
 default_run_options[:pty] = true
