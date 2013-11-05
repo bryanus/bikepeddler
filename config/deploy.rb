@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
 
-server "bryanus.com", :web, :app, :db, primary: true
+server "192.241.223.181", :web, :app, :db, primary: true
 
 set :application, "heavypeddler"
 set :user, "deploy"
