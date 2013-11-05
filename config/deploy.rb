@@ -12,7 +12,7 @@ set :use_sudo, true
 
 set :scm, "git"
 set :repository, "https://github.com/bryanus/bikepeddler.git"
-set :branch, "cap2"
+set :branch, "master"
 
 set :rvm_type, :system
 
