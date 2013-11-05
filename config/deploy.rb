@@ -14,6 +14,7 @@ set :scm, "git"
 set :repository, "https://github.com/bryanus/bikepeddler.git"
 set :branch, "cap2"
 
+set :rvm_type, :system
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
