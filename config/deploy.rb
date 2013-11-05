@@ -6,7 +6,7 @@ server "192.241.223.181", :web, :app, :db, primary: true
 set :application, "heavypeddler"
 set :user, "deploy"
 set :port, 22
-set :deploy_to, "/home/#{user}/apps/#{application}"
+set :deploy_to, "/home/rails/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, true
 
