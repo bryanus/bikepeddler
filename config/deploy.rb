@@ -4,11 +4,11 @@ require "rvm/capistrano"
 server "192.241.223.181", :web, :app, :db, primary: true
 
 set :application, "heavypeddler"
-set :user, "root"
+set :user, "deploy"
 set :port, 22
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
-set :use_sudo, false
+set :use_sudo, true
 
 set :scm, "git"
 set :repository, "https://github.com/bryanus/bikepeddler.git"
