@@ -50,6 +50,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: bikepeddler_production
+  host: localhost
   pool: 5
   username: pguser
   password: 
