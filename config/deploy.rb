@@ -1,6 +1,10 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
 
+set :rvm_ruby_string, :local # use the same ruby as used locally for deployment
+before 'deploy:setup', 'rvm:install_rvm'  # install/update RVM
+before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
+
 server "192.241.223.181", :web, :app, :db, primary: true
 
 set :application, "heavypeddler"
