@@ -1,4 +1,4 @@
-root = "/home/rails/apps/heavypeddler/current"
+root = "/home/deploy/apps/heavypeddler/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
