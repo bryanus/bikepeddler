@@ -52,5 +52,5 @@ production:
   database: bikepeddler_production
   host: localhost
   pool: 5
-  username: pguser
+  username: username
   password: "password"
