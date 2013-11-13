@@ -3,16 +3,16 @@ require "rvm/capistrano"
 
 # set :rvm_ruby_string, :local # use the same ruby as used locally for deployment
 before 'deploy:setup', 'rvm:install_rvm'  # install/update RVM
-before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
+# before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
 
-server "bryanus.com", :web, :app, :db, primary: true
+server "162.243.138.48", :web, :app, :db, primary: true
 
 set :application, "heavypeddler"
 set :user, "deploy"
 set :port, 22
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
-set :use_sudo, false
+set :use_sudo, true
 
 set :scm, "git"
 set :repository, "https://github.com/bryanus/bikepeddler.git"
@@ -37,8 +37,8 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
-    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
-    # put File.read("#{shared_path}/config/database.yml"), "#{shared_path}/config/database.yml"
+    # put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+    put File.read("/home/#{user}/apps/#{application}/shared/config/database.yml"), "/home/#{user}/apps/#{application}/shared/config/database.yml"
     puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
