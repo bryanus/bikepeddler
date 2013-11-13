@@ -59,5 +59,6 @@ gem 'unicorn'
 # Deploy with Capistrano
 gem 'capistrano', '~> 2.15.5'
 gem 'rvm-capistrano'
+
 # To use debugger
 # gem 'debugger'
