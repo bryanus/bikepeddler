@@ -26,6 +26,10 @@ namespace :deploy do
     task command, roles: :app, except: {no_release: true} do
       run "/etc/init.d/unicorn_#{application} #{command}"
     end
+    desc "reload the database with seed data"
+	  task :seed do
+	    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+	  end
   end
 
   task :setup_config, roles: :app do
