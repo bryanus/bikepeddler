@@ -30,6 +30,7 @@ namespace :deploy do
             logger.info "Skipping asset pre-compilation because there were no asset changes"
           end
       end
+    end  
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
