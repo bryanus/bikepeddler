@@ -43,6 +43,10 @@ namespace :deploy do
         put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
         puts "Now edit the config files in #{shared_path}."
       end
+      task :symlink_config, roles: :app do
+        run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      end
+      after "deploy:finalize_update", "deploy:symlink_config"
     when "production"
       task :setup_config, roles: :app do
         sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
@@ -51,15 +55,16 @@ namespace :deploy do
         put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
         puts "Now edit the config files in #{shared_path}."
       end
+      task :symlink_config, roles: :app do
+        run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      end
+      after "deploy:finalize_update", "deploy:symlink_config"
     after "deploy:setup", "deploy:setup_config"  
   end  
       
   
 
-  task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-  after "deploy:finalize_update", "deploy:symlink_config"
+  
 
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
