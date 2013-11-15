@@ -1,10 +1,10 @@
-root = "/home/username/apps/heavypeddler/current"
+root = "/home/username/apps/heavypeddler_staging/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
-stderr_path "#{root}/log/unicorn.log"
-stdout_path "#{root}/log/unicorn.log"
+stderr_path "#{root}/log/unicorn_staging.log"
+stdout_path "#{root}/log/unicorn_staging.log"
 
-listen "/tmp/unicorn.heavypeddler.sock"
+listen "/tmp/unicorn.heavypeddler_staging.sock"
 worker_processes 2
 timeout 30
 
