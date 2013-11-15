@@ -13,4 +13,4 @@ set :branch, "multistage"
 
 
 default_run_options[:pty] = true
-# ssh_options[:forward_agent] = true
+ssh_options[:forward_agent] = true # required to deploy for some reason, even though I am not forwarding from my mac currently
