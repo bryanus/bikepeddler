@@ -1,19 +1,10 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
+require 'capistrano/ext/multistage'
 
-server "162.243.132.194", :web, :app, :db, primary: true
-
-set :application, "heavypeddler"
-set :user, "username"
-set :port, 22
-set :deploy_to, "/home/#{user}/apps/#{application}"
-set :deploy_via, :remote_cache
-set :use_sudo, false
-
-set :scm, "git"
-set :repository, "git@github.com:bryanus/bikepeddler.git"
-set :branch, "cap3"
-
+#set deploy environments and default to staging; now you have to specify env when deploying, ie 'cap staging deploy'
+set :stages, ["staging", "production"]
+set :default_stage, "staging"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
@@ -43,13 +34,25 @@ namespace :deploy do
       end
   end
 
-  task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
-    run "mkdir -p #{shared_path}/config"
-    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
-    puts "Now edit the config files in #{shared_path}."
-  end
+  case :stages
+    when "staging"
+      task :setup_config, roles: :app do
+        sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}_staging"
+        sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}_staging"
+        run "mkdir -p #{shared_path}/config"
+        put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+        puts "Now edit the config files in #{shared_path}."
+      end
+    when "production"
+      task :setup_config, roles: :app do
+        sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+        sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+        run "mkdir -p #{shared_path}/config"
+        put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+        puts "Now edit the config files in #{shared_path}."
+      end
+  end  
+      
   after "deploy:setup", "deploy:setup_config"
 
   task :symlink_config, roles: :app do
