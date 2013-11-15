@@ -1,22 +1,11 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
+require 'capistrano/ext/multistage'
 
-server "162.243.132.194", :web, :app, :db, primary: true
+set :stages, ["staging", "production"]
+set :default_stage, "staging"
 
-set :application, "heavypeddler"
-set :user, "username"
-set :port, 22
-set :deploy_to, "/home/#{user}/apps/#{application}"
-set :deploy_via, :remote_cache
-set :use_sudo, false
-
-set :scm, "git"
-set :repository, "git@github.com:bryanus/bikepeddler.git"
-set :branch, "cap3"
-
-
-default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
+# server settings moved to respective stage environments in /deploy/env.rb
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
