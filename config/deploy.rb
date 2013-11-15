@@ -40,7 +40,7 @@ namespace :deploy do
         sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}_staging"
         sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}_staging"
         run "mkdir -p #{shared_path}/config"
-        put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+        put File.read("config/database.example.yml"), "username/apps/heavypeddler_shared/config/database.yml"
         puts "Now edit the config files in #{shared_path}."
       end
       task :symlink_config, roles: :app do
