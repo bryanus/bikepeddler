@@ -3,7 +3,7 @@
 
 class PostsController < ApplicationController
 
-	before_filter :authorize, only: [:edit, :update]
+	before_action :authorize, only: [:edit, :update]
 
 	# caches_page :index
 	
@@ -103,7 +103,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		
-		@post.update_attributes(params[:post])
+		@post.update(params[:post])
 		redirect_to post_images_path(@post)
 	end
 

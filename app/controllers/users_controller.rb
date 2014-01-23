@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :authorize, only: [:edit, :update]
+	before_action :authorize, only: [:edit, :update]
 
 
 	def new
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		if @user.update_attributes(params[:user])
+		if @user.update(params[:user])
 			redirect_to user_path(@user)
 		else
       render 'edit'
