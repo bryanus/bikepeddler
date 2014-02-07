@@ -16,9 +16,9 @@ set :use_sudo,     false
 set :stages,       %w(staging production)
 set :default_stage, "staging"
 #set :rails_env,    'production'
-# ssh_options[:forward_agent] = true
+ssh_options[:forward_agent] = true
 ssh_options[:username]      = 'deployer'
-
+ssh_options[:keys] = ["bikepeddler.pem"]
 before 'deploy:setup', 'rvm:install_rvm'
 before 'deploy:setup', 'rvm:install_ruby'
 after "deploy", "rvm:trust_rvmrc"
