@@ -2,7 +2,8 @@ server "54.241.24.21", :web, :app, :db, primary: true
 
 set :rails_env,  'production'
 # set :application, "heavypeddler"
-# set :user, "username"
+set :user, "username"
+set :password, "bryanus"
 # set :port, 22
 # set :deploy_to, "/home/#{user}/apps/#{application}"
 # set :deploy_via, :remote_cache
