@@ -66,5 +66,5 @@ Bikepeddler::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Other config items omitted.
-  config.action_mailer.default_url_options = { :host => "heavypeddler.herokuapp.com" }
+  # config.action_mailer.default_url_options = { :host => "heavypeddler.herokuapp.com" }
 end
