@@ -16,7 +16,7 @@ set :use_sudo,     false
 set :stages,       %w(staging production)
 set :default_stage, "staging"
 #set :rails_env,    'production'
-ssh_options[:forward_agent] = true
+# ssh_options[:forward_agent] = true
 ssh_options[:username]      = 'deployer'
 
 before 'deploy:setup', 'rvm:install_rvm'
