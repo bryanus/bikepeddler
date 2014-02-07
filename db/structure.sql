@@ -49,8 +49,8 @@ SET default_with_oids = false;
 CREATE TABLE categories (
     id integer NOT NULL,
     name character varying(255),
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -82,8 +82,8 @@ CREATE TABLE comments (
     comment text,
     post_id integer,
     user_id integer,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -114,8 +114,8 @@ CREATE TABLE images (
     id integer NOT NULL,
     image_file character varying(255),
     post_id integer,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -151,8 +151,8 @@ CREATE TABLE posts (
     category_id integer,
     adtype integer,
     status integer DEFAULT 0,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
     currency integer DEFAULT 0,
     has_image boolean DEFAULT false,
     zip integer,
@@ -263,8 +263,8 @@ CREATE TABLE users (
     lname character varying(255),
     email character varying(255),
     password_digest character varying(255),
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
     zip integer,
     auth_token character varying(255),
     password_reset_token character varying(255),
@@ -435,6 +435,8 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 --
 -- PostgreSQL database dump complete
 --
+
+SET search_path TO "$user",public;
 
 INSERT INTO schema_migrations (version) VALUES ('20130528191750');
 

@@ -2,8 +2,6 @@ class User < ActiveRecord::Base
   include Gravtastic
   gravtastic
   
-  attr_accessible :username, :email, :fname, :lname, :zip, :password, :password_confirmation
-
   has_secure_password
 
   validates_uniqueness_of :username, :on => :create

@@ -16,6 +16,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: bikepeddler_development
+  host: localhost
   pool: 5
   username: 
   password:
@@ -42,6 +43,7 @@ test:
   adapter: postgresql
   encoding: unicode
   database: bikepeddler_test
+  host: localhost
   pool: 5
   username: 
   password:

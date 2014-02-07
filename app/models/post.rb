@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 class Post < ActiveRecord::Base
-  attr_accessible :description, :price, :zip, :size, :qty, :title, :images, :category_id, :adtype, :currency, :has_image, :user_id, :tag_list
   acts_as_ordered_taggable
   acts_as_indexed :fields => [:title, :description, :zip, :tag_list]
 

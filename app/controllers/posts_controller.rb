@@ -73,7 +73,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(params[:post])
+		@post = Post.new(post_params)
 		@categories = Category.all
 		
 		respond_to do |format|
@@ -103,7 +103,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		
-		@post.update(params[:post])
+		@post.update(post_params)
 		redirect_to post_images_path(@post)
 	end
 
@@ -121,6 +121,13 @@ class PostsController < ApplicationController
 		
 		@post.update_attribute(:status, params[:status])
 		redirect_to user_path(current_user)
+	end
+
+	private
+
+	def post_params
+		params.permit(:description, :price, :zip, :size, :qty, :title, :images, :category_id, :adtype, :currency, :has_image, :user_id, :tag_list
+  )
 	end
 
 end

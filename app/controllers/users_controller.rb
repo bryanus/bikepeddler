@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(params[:user])
+		@user = User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id #logs them in once signed up
 			redirect_to root_url, notice: "Thank you for signing up!"
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		if @user.update(params[:user])
+		if @user.update(user_params)
 			redirect_to user_path(@user)
 		else
       render 'edit'
@@ -51,5 +51,10 @@ class UsersController < ApplicationController
 		redirect_to logout_path(@user)
 	end
 
+	private
+
+    def user_params #require user attriubte but only permit these attributes
+      params.permit(:username, :email, :fname, :lname, :zip, :password, :password_confirmation)
+    end
 
 end

@@ -34,7 +34,7 @@ class ImagesController < ApplicationController
 
   def create
   	@post = Post.find(params[:post_id])
-    @image = @post.images.new(params[:image])
+    @image = @post.images.new(image_params)
 
     if @image.save
       @post.update_attribute(:has_image, true)
@@ -63,6 +63,11 @@ class ImagesController < ApplicationController
     end
   end  
 
+  private
+
+  def image_params
+    params.permit(:image_file, :post_id)
+  end
 
 end
 

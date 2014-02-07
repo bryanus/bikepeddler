@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
 
 	def create
-		@comment = Comment.new(params[:comment])
-		@post = Post.find(params[:comment][:post_id])
+		@comment = Comment.new(comment_params)
+		@post = Post.find(comment_params[:post_id])
 		
 		respond_to do |format|
 	    if @comment.save
@@ -23,14 +23,13 @@ class CommentsController < ApplicationController
 		puts params
 		puts "*" * 50
 		@comment = Comment.find(params[:id])
-		# @post = Post.find(params[:comment][:post_id])
 		puts @comment.id
 	end
 
 	def update
 		@comment = Comment.find(params[:id])
 		
-		@comment.update(params[:comment])
+		@comment.update(comment_params)
 		redirect_to post_path(@comment.post_id)
 	end
 
@@ -43,6 +42,12 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "Unable to delete. Please try again."
     end
+	end
+
+	private
+
+	def comment_params
+		params.permit(:comment, :post_id, :user_id)
 	end
 
 end
