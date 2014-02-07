@@ -1,4 +1,4 @@
-server "54.219.23.161", :web, :app, :db, primary: true
+server "ec2-54-219-23-161.us-west-1.compute.amazonaws.com", :web, :app, :db, primary: true
 
 set :rails_env,  'production'
 # set :application, "heavypeddler"
