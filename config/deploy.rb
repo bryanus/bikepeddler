@@ -19,6 +19,7 @@ set :default_stage, "staging"
 ssh_options[:forward_agent] = true
 ssh_options[:username]      = 'deployer'
 ssh_options[:keys] = ["bikepeddler.pem"]
+default_run_options[:pty] = true
 before 'deploy:setup', 'rvm:install_rvm'
 before 'deploy:setup', 'rvm:install_ruby'
 after "deploy", "rvm:trust_rvmrc"
